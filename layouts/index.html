@@ -6,19 +6,14 @@
 </section>
 
 <section class="recent-posts">
-  <h2>Recent & Updated Articles</h2>
+  <h2>Updated Articles</h2>
   <ul style="list-style-type: none; padding-left: 0;">
-    {{/* .ByLastmod.Reverse sorts posts by last modified date, newest first */}}
+    {{/* Get posts and sort strictly by the latest update date */}}
     {{ $posts := where site.RegularPages "Type" "posts" }}
     {{ range $posts.ByLastmod.Reverse }}
       <li style="margin-bottom: 12px;">
-        <span class="meta">
-          {{ .Date.Format "2006-01-02" }}
-          {{ if and .Lastmod (ne .Lastmod .Date) }}
-            <em style="font-size: 0.85em; color: #888;">(updated {{ .Lastmod.Format "2006-01-02" }})</em>
-          {{ end }}
-        </span>
-        — 
+        {{/* Displays lastmod date if set, or original date if not */}}
+        <span class="meta">{{ .Lastmod.Format "2006-01-02" }}</span> — 
         <a href="{{ .RelPermalink }}"><strong>{{ .Title }}</strong></a>
         
         {{ if .Params.tags }}
