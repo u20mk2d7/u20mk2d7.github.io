@@ -1,0 +1,25 @@
+{{ define "main" }}
+<article>
+  <h2>{{ .Title }}</h2>
+  
+  <p class="meta">
+    Created: {{ .Date.Format "2006-01-02" }}
+    {{ if and .Lastmod (ne .Lastmod .Date) }}
+      | Modified: {{ .Lastmod.Format "2006-01-02" }}
+    {{ end }}
+  </p>
+  
+  {{ if .Params.tags }}
+    <p class="tags">
+      Tags: 
+      {{ range .Params.tags }}
+        <a href="/tags/{{ . | urlize }}/">#{{ . }}</a>
+      {{ end }}
+    </p>
+  {{ end }}
+
+  <div class="content">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}
