@@ -1,23 +1,30 @@
 {{ define "main" }}
 
-<h1>{{ .Site.Title }}</h1>
-
-<p>Welcome to The Andes</p>
+<p>Welcome to <strong>The Andes</strong></p>
 
 <h2>Latest Posts</h2>
 
-{{ range .Pages }}
-<article>
+<ul style="list-style-type: none; padding-left: 0;">
+  {{ range site.RegularPages }}
+  <li style="margin-bottom: 24px;">
+    <span class="meta">{{ .Date.Format "2006-01-02" }}</span>
     <h3>
-        <a href="{{ .RelPermalink }}">
-            {{ .Title }}
-        </a>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
     </h3>
 
-    <p>
-        {{ .Summary }}
-    </p>
-</article>
-{{ end }}
+    {{ if .Params.tags }}
+      <p class="tags">
+        {{ range .Params.tags }}
+          <a href="/tags/{{ . | urlize }}/">#{{ . }}</a>
+        {{ end }}
+      </p>
+    {{ end }}
+
+    <p>{{ .Summary }}</p>
+  </li>
+  {{ else }}
+    <p><em>No published posts found. Check if your Markdown posts have <code>draft: false</code>.</em></p>
+  {{ end }}
+</ul>
 
 {{ end }}
