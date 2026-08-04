@@ -1,0 +1,12 @@
+{{ define "main" }}
+<h2>Posts tagged with "#{{ .Title }}"</h2>
+<ul>
+  {{ range .Pages }}
+    <li>
+      <span style="color: #666; font-family: monospace;">{{ .Date.Format "2006-01-02" }}</span> — 
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </li>
+  {{ end }}
+</ul>
+<p><a href="/tags/">← Back to all tags</a></p>
+{{ end }}

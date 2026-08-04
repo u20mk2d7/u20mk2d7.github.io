@@ -1,0 +1,11 @@
+{{ define "main" }}
+<h2>Topics & Tags</h2>
+<ul style="list-style-type: none; padding-left: 0;">
+  {{ range .Data.Terms.ByCount }}
+    <li style="margin-bottom: 8px;">
+      <a href="{{ .Page.RelPermalink }}"><strong>#{{ .Page.Title }}</strong></a> 
+      <span style="color: #666;">({{ .Count }} {{ if eq .Count 1 }}post{{ else }}posts{{ end }})</span>
+    </li>
+  {{ end }}
+</ul>
+{{ end }}
