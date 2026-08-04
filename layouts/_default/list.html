@@ -1,8 +1,10 @@
 {{ define "main" }}
+
 <h2>All Articles</h2>
 
 <ul style="list-style-type: none; padding-left: 0;">
-  {{ range .Pages }}
+  {{/* Sort all articles by creation date (.Date), newest first */}}
+  {{ range .Pages.ByDate.Reverse }}
     <li style="margin-bottom: 12px;">
       <span class="meta">{{ .Date.Format "2006-01-02" }}</span> — 
       <a href="{{ .RelPermalink }}"><strong>{{ .Title }}</strong></a>
@@ -15,6 +17,9 @@
         </span>
       {{ end }}
     </li>
+  {{ else }}
+    <p><em>No articles found.</em></p>
   {{ end }}
 </ul>
+
 {{ end }}
