@@ -1,30 +1,30 @@
 {{ define "main" }}
 
-<p>Welcome to <strong>The Andes</strong></p>
+<section class="intro">
+  <h2>About Me</h2>
+  <p>Welcome to <strong>The Andes</strong>. This is my personal notebook on mathematics, C++, and computer science.</p>
+</section>
 
-<h2>Latest Posts</h2>
-
-<ul style="list-style-type: none; padding-left: 0;">
-  {{ range site.RegularPages }}
-  <li style="margin-bottom: 24px;">
-    <span class="meta">{{ .Date.Format "2006-01-02" }}</span>
-    <h3>
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    </h3>
-
-    {{ if .Params.tags }}
-      <p class="tags">
-        {{ range .Params.tags }}
-          <a href="/tags/{{ . | urlize }}/">#{{ . }}</a>
+<section class="recent-posts">
+  <h2>Recent Articles</h2>
+  <ul style="list-style-type: none; padding-left: 0;">
+    {{ range where site.RegularPages "Type" "posts" }}
+      <li style="margin-bottom: 12px;">
+        <span class="meta">{{ .Date.Format "2006-01-02" }}</span> — 
+        <a href="{{ .RelPermalink }}"><strong>{{ .Title }}</strong></a>
+        
+        {{ if .Params.tags }}
+          <span class="tags" style="margin-left: 8px;">
+            {{ range .Params.tags }}
+              <a href="/tags/{{ . | urlize }}/">#{{ . }}</a>
+            {{ end }}
+          </span>
         {{ end }}
-      </p>
+      </li>
+    {{ else }}
+      <p><em>No articles found.</em></p>
     {{ end }}
-
-    <p>{{ .Summary }}</p>
-  </li>
-  {{ else }}
-    <p><em>No published posts found. Check if your Markdown posts have <code>draft: false</code>.</em></p>
-  {{ end }}
-</ul>
+  </ul>
+</section>
 
 {{ end }}
