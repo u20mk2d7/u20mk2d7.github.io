@@ -1,6 +1,7 @@
 ---
 title: "Eigenvalues and Diagonalization"
-date: 2026-08-04
+created date: 2026-08-04
+modified date: 
 tags: ["math", "linear-algebra"]
 math: true
 ---

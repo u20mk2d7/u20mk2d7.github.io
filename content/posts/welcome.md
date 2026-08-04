@@ -1,6 +1,7 @@
 ---
 title: "Linear Algebra Notes"
-date: 2026-08-04
+created date: 2026-08-04
+modified date: 
 draft: false
 tags: ["math", "linear-algebra"]
 math: true
