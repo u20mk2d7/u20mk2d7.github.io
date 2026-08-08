@@ -4,7 +4,7 @@ date: 2026-08-04
 lastmod: 2026-08-04
 draft: false
 tags: [""]
-slug: "about-me"
+slug: "about"
 
 ---
 the Fire of the Andes
