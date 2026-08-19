@@ -15,3 +15,8 @@ Leetcode:   https://leetcode.com/u/u20mk2d7/
 codeforces: https://codeforces.com/profile/u20mk2d7
 oj vnoi:    https://oj.vnoi.info/user/u20mk2d7
 cses fi:    https://cses.fi/user/391678
+
+
+blog:
+https://terrytao.wordpress.com/
+https://cp-algorithms.com/
