@@ -1,22 +1,18 @@
 ---
-title: "About Me"
+title: "About"
 date: 2026-08-04
 lastmod: 2026-08-04
 draft: false
-tags: [""]
+tags: ["about"]
 slug: "about"
 
 ---
-"the Fire of the Andes"
+**the Fire Below the Mountain**
+**Keep Climbing. Keep Digging. Keep the Fire Alive. Keep Moving Forward. Keep Persisting. Keep Learning from Failure. Keep Letting Go of the Past.**
 
-
-Profile:    https://www.linkedin.com/in/u20mk2d7/
-Leetcode:   https://leetcode.com/u/u20mk2d7/
-codeforces: https://codeforces.com/profile/u20mk2d7
-oj vnoi:    https://oj.vnoi.info/user/u20mk2d7
-cses fi:    https://cses.fi/user/391678
-
-
-blog:
-https://terrytao.wordpress.com/
-https://cp-algorithms.com/
+## Problem Solving:
+- [LinkedIn](https://www.linkedin.com/in/u20mk2d7/)
+- [LeetCode](https://leetcode.com/u/u20mk2d7/)
+- [Codeforces](https://codeforces.com/profile/u20mk2d7)
+- [VNOI Online Judge](https://oj.vnoi.info/user/u20mk2d7)
+- [CSES](https://cses.fi/user/391678)
