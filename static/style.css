@@ -1,92 +1,80 @@
-/* ===== VINTAGE NEWSPAPER THEME ===== */
+/* ===== RETRO CRT TERMINAL THEME ===== */
 
 * {
   box-sizing: border-box;
 }
 
 html, body {
-  background-color: #f4ebd9; /* Warm newsprint paper color */
-  color: #111111;
-  font-family: "Georgia", "Times New Roman", serif;
-  font-size: 19px;
+  background-color: #0b0f0b;
+  color: #33ff33;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 18px;
   line-height: 1.6;
+  text-shadow: 0 0 3px rgba(51, 255, 51, 0.5);
 }
 
 body {
-  max-width: 780px;
+  max-width: 800px;
   margin: 40px auto;
   padding: 0 20px;
-  border-left: 1px solid #111111;
-  border-right: 1px solid #111111;
 }
 
-/* Editorial Headings */
+/* CRT Scanlines Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+  background-size: 100% 4px;
+}
+
+/* Headings */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display", "Times New Roman", serif;
-  font-weight: 900;
-  color: #000000;
-  margin-top: 1.2em;
-  margin-bottom: 0.4em;
-  text-rendering: optimizeLegibility;
-}
-
-h1 {
-  font-size: 2.8rem;
-  text-align: center;
+  color: #66ff66;
+  font-family: inherit;
   text-transform: uppercase;
-  letter-spacing: -0.5px;
+  letter-spacing: 1.5px;
 }
 
 h2 {
-  font-size: 1.8rem;
-  border-bottom: 2px solid #000000;
-  border-top: 1px solid #000000;
-  padding: 6px 0;
-  margin-top: 1.5em;
+  border-bottom: 2px dashed #008800;
+  padding-bottom: 6px;
 }
 
 /* Links */
 a {
-  color: #111111;
+  color: #aaffaa;
   text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
 }
 
 a:hover {
-  color: #555555;
+  background-color: #33ff33;
+  color: #000000;
+  text-decoration: none;
+  text-shadow: none;
 }
 
-/* Navigation Links */
-nav a {
-  font-family: "Times New Roman", serif;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  font-weight: bold;
-}
-
-/* Newspaper Divider */
+/* Horizontal Rule */
 hr {
   border: none;
-  border-top: 1px solid #111111;
+  border-top: 1px dashed #33ff33;
   margin: 20px 0;
 }
 
-/* Pull Quotes / Blockquotes */
-blockquote {
-  font-style: italic;
-  border-left: 2px solid #000000;
-  margin: 1.8em 0;
-  padding-left: 20px;
-  color: #222222;
+/* Code & Pre Blocks (Fixed for Vintage Newspaper) */
+pre, code, pre code {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #e5dac1 !important; /* Slightly darker newsprint paper shade */
+  color: #111111 !important;            /* Pure dark text for readability */
 }
 
-/* Code & Pre Blocks */
-code, pre {
-  font-family: "Courier New", Courier, monospace;
-  background-color: #eae1cf;
-  color: #111111;
+pre {
+  padding: 16px;
+  border: 1px solid #111111;
+  overflow-x: auto;
+  box-shadow: 2px 2px 0px #111111; /* Vintage press shadow effect */
 }
 
 code {
@@ -94,20 +82,19 @@ code {
   font-size: 0.9em;
 }
 
-pre {
-  padding: 14px;
-  border: 1px solid #111111;
-  overflow-x: auto;
-}
-
-/* Metadata */
-.meta {
-  font-style: italic;
-  color: #444444;
-  font-size: 0.9rem;
-}
-
-/* Ensure MathJax fits newspaper color scheme */
-mjx-container, .katex {
+/* Force Chroma syntax highlighter elements inside code blocks to remain readable */
+pre code * {
+  background-color: transparent !important;
   color: #111111 !important;
+  text-shadow: none !important;
+}
+
+/* Accent specific code elements for subtle editorial styling */
+pre .k, pre .kd, pre .kn { color: #8b0000 !important; font-weight: bold; } /* Keywords in dark red */
+pre .s, pre .s1, pre .s2 { color: #2e5b88 !important; }                     /* Strings in slate blue */
+pre .c, pre .c1, pre .ch { color: #666666 !important; font-style: italic; } /* Comments in gray */
+
+/* MathJax & KaTeX color override */
+mjx-container, .katex {
+  color: #33ff33 !important;
 }
