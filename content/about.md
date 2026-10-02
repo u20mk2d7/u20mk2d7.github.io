@@ -68,17 +68,17 @@ Work top to bottom. When an item is done, the next one takes its place. Nothing 
 
 ### Lunch: math
 
-1. [ ] [Algebra: Equations & Inequalities](https://www.coursera.org/learn/algebra-i/home/welcome)only if needed47%. Self-test: if the quizzes feel easy, tick it and move on.
+1. [ ] [Algebra: Equations & Inequalities](https://www.coursera.org/learn/algebra-i/home/welcome)only if needed 47%. Self-test: if the quizzes feel easy, tick it and move on.
 2. [ ] [Algebra: Functions & Applications](https://www.coursera.org/learn/algebra-ii/home/welcome)only if needed
 3. [ ] [Mathematical Thinking in Computer Science](https://www.coursera.org/learn/what-is-a-proof/home/welcome) 9%. Proofs and rigorous reasoning.
 4. [ ] [Combinatorics and Probability](https://www.coursera.org/learn/combinatorics/home/welcome)Core quant interview material.
 5. [ ] Foundations of Probability and Statistics (CU Boulder), 3 coursesto enrollThe statistics behind the go/no-go decision.
-6. [ ] [Mathematics for ML: Linear Algebra](https://www.coursera.org/learn/linear-algebra-machine-learning/home/welcome)12%. Regression, covariance, PCA later.
+6. [ ] [Mathematics for ML: Linear Algebra](https://www.coursera.org/learn/linear-algebra-machine-learning/home/welcome) 12%. Regression, covariance, PCA later.
 
 ### Mon and Wed evening: DSA
 
 1. [ ] [Algorithmic Toolbox](https://www.coursera.org/learn/algorithmic-toolbox/home/welcome) (UCSD)38%. Do assignments in C++.
-2. [ ] [Data Structures](https://www.coursera.org/learn/data-structures/home/welcome) (UCSD)9%.
+2. [ ] [Data Structures](https://www.coursera.org/learn/data-structures/home/welcome) (UCSD) 9%.
 3. [ ] [Algorithms on Graphs](https://www.coursera.org/learn/algorithms-on-graphs/home/welcome)optional
 4. [ ] Interview practiceCoding problems, plus *A Practical Guide to Quantitative Finance Interviews* (Zhou) for probability puzzles.
 
