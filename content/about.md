@@ -7,7 +7,6 @@ tags: ["about"]
 slug: "about"
 
 ---
-**the Fire Below the Mountain**
 **Keep Climbing.**
 **Keep Digging.**
 **Keep the Fire Alive.**
@@ -15,6 +14,7 @@ slug: "about"
 **Keep Persisting.**
 **Keep Learning from Failure.**
 **Keep Letting Go of the Past.**
+**the Fire Below the Mountain**
 
 ## Profiles
 
@@ -26,7 +26,7 @@ slug: "about"
 
 # Study plan: blustone and the quant path
 
-Target role: quant developer / low-latency C++ engineer. Three fixed slots a day, one job per slot, at most three courses active at once. Tick items as you finish them; ticks are saved in this browser.
+Target role: quant developer / low-latency C++ engineer. Three fixed slots a day, one job per slot, at most three courses active at once. Math gets the extra Saturday slot because it is the weakest area and the CU Boulder statistics needs calculus first. Tick items as you finish them; ticks are saved in this browser.
 
 Loading today's plan…
 
@@ -47,10 +47,10 @@ Evening
 | Wed | blustone | Math course | DSA |
 | Thu | blustone | Math course | C++ / Python |
 | Fri | blustone | Math: review and quiz | Reading / English |
-| Sat | blustone or catch-up | Free | Weekly review, 30 min |
+| Sat | blustone or catch-up | Math | Weekly review, 30 min |
 | Sun | Rest. No study, no project. | | |
 
-About 12 h blustone, 7.5 h math, 2.5 h DSA, 2.5 h C++/Python and 1 h reading per week.
+About 12 h blustone, 7.5 h math (six lunches at 75 min), 2.5 h DSA, 2.5 h C++/Python and 1 h reading per week.
 
 ## What each slot works on
 
@@ -58,83 +58,84 @@ Work top to bottom. When an item is done, the next one takes its place. Nothing 
 
 ### Mornings: blustone
 
-1. [ ] [Object-Oriented Data Structures in C++](https://www.coursera.org/learn/cs-fundamentals-1/home/welcome) (UIUC): Image Transform project 97% done, about two sessions. Finishes course 1; courses 2–3 are dropped.
-2. [ ] `fixed_point`: write the failing tests, then the fixSteps 0–7 from the review. Tests under asan-ubsan first.
-3. [ ] `padding[34]`, `OrderType::LimitMaker`, `Micros`TODO.md NOW items.
-4. [ ] Measure RTT to Binance (architecture §12 Q1)If p50 is above 20 ms, a Tokyo VPS moves up the list.
-5. [ ] Phase 3: ingress, book, capture writer runningStart capturing early so data piles up for Phase 4.
-6. [ ] Phase 4: replay and markout study
-7. [ ] Go/no-go, regulatory re-check (§12 Q5), public write-up
+1. [ ] `fixed_point`: write the failing tests, then the fixSteps 0–7 from the review. Tests under asan-ubsan first.
+2. [ ] `padding[34]`, `OrderType::LimitMaker`, `Micros`TODO.md NOW items.
+3. [ ] Measure RTT to Binance (architecture §12 Q1)If p50 is above 20 ms, a Tokyo VPS moves up the list.
+4. [ ] Phase 3: ingress, book, capture writer runningStart capturing early so data piles up for Phase 4.
+5. [ ] Phase 4: replay and markout studyBuild the pipeline now; run the go/no-go analysis after the estimation course.
+6. [ ] Go/no-go, regulatory re-check (§12 Q5), public write-up
 
-### Lunch: math
+### Lunch and Saturday 12:30: math
 
-1. [ ] [Algebra: Equations & Inequalities](https://www.coursera.org/learn/algebra-i/home/welcome)only if needed 47%. Self-test: if the quizzes feel easy, tick it and move on.
-2. [ ] [Algebra: Functions & Applications](https://www.coursera.org/learn/algebra-ii/home/welcome)only if needed
-3. [ ] [Mathematical Thinking in Computer Science](https://www.coursera.org/learn/what-is-a-proof/home/welcome) 9%. Proofs and rigorous reasoning.
-4. [ ] [Combinatorics and Probability](https://www.coursera.org/learn/combinatorics/home/welcome)Core quant interview material.
-5. [ ] Foundations of Probability and Statistics (CU Boulder), 3 coursesto enrollThe statistics behind the go/no-go decision.
-6. [ ] [Mathematics for ML: Linear Algebra](https://www.coursera.org/learn/linear-algebra-machine-learning/home/welcome) 12%. Regression, covariance, PCA later.
+1. [ ] [Algebra: Equations & Inequalities](https://www.coursera.org/learn/algebra-i/home/welcome)self-test firstGrade 21%. If the quizzes feel easy, tick it and move on.
+2. [ ] [Algebra: Functions & Applications](https://www.coursera.org/learn/algebra-ii/home/welcome)if neededFunctions, exponentials and logs: the entry ticket to calculus.
+3. [ ] Single-variable calculus: limits, derivatives, integrals, seriesfreeKhan Academy AP Calculus AB then BC, or MIT OCW 18.01. CU Boulder requires calculus through Calculus II.
+4. [ ] [Probability Foundations for Data Science and AI](https://www.coursera.org/learn/probability-theory-foundation-for-data-science?specialization=foundations-probability-statistics) (CU Boulder 1)About 43 hours.
+5. [ ] [Statistical Estimation for Data Science and AI](https://www.coursera.org/learn/statistical-inference-for-estimation-in-data-science?specialization=foundations-probability-statistics) (CU Boulder 3)About 29 hours. Taken before course 2: confidence intervals are what the go/no-go needs. Order is allowed to vary.
+6. [ ] [Discrete-Time Markov Chains and Monte Carlo Methods](https://www.coursera.org/learn/discrete-time-markov-chains-monte-carlo-methods?specialization=foundations-probability-statistics) (CU Boulder 2)About 33 hours. Monte Carlo is useful for simulating fills.
+7. [ ] [Mathematics for ML: Linear Algebra](https://www.coursera.org/learn/linear-algebra-machine-learning/home/welcome)Not started yet. Regression, covariance, PCA later.
 
 ### Mon and Wed evening: DSA
 
-1. [ ] [Algorithmic Toolbox](https://www.coursera.org/learn/algorithmic-toolbox/home/welcome) (UCSD)38%. Do assignments in C++.
-2. [ ] [Data Structures](https://www.coursera.org/learn/data-structures/home/welcome) (UCSD) 9%.
+1. [ ] [Algorithmic Toolbox](https://www.coursera.org/learn/algorithmic-toolbox/home/welcome) (UCSD)Grade 19%. Do assignments in C++.
+2. [ ] [Data Structures](https://www.coursera.org/learn/data-structures/home/welcome) (UCSD)Not started.
 3. [ ] [Algorithms on Graphs](https://www.coursera.org/learn/algorithms-on-graphs/home/welcome)optional
-4. [ ] Interview practiceCoding problems, plus *A Practical Guide to Quantitative Finance Interviews* (Zhou) for probability puzzles.
+4. [ ] Interview practiceCoding problems, [Combinatorics and Probability](https://www.coursera.org/learn/combinatorics/home/welcome), and *A Practical Guide to Quantitative Finance Interviews* (Zhou).
 
 ### Tue and Thu evening: C++ and Python
 
 1. [ ] [Modern C++ Features & Concurrency](https://www.coursera.org/learn/packt-modern-cplusplus-features-concurrency-djj1a/home/welcome) (Packt)Read alongside *C++ Concurrency in Action* (Williams); the course stops at C++17.
-2. [ ] [Advanced OO & Generic Programming in C++](https://www.coursera.org/learn/packt-advanced-object-oriented-generic-programming-in-cplusplus-dxj1v/home/welcome)skim34%. Templates sections only.
-3. [ ] [Python for Data Science, AI & Development](https://www.coursera.org/learn/python-for-applied-data-science-ai/home/welcome) (IBM)
-4. [ ] [Data Analysis with Python](https://www.coursera.org/learn/data-analysis-with-python/home/welcome) (IBM)With *Python for Data Analysis* (McKinney). This is the pandas for `tools/markout/`.
+2. [ ] [Python for Data Science, AI & Development](https://www.coursera.org/learn/python-for-applied-data-science-ai/home/welcome) (IBM)Must be done before CU Boulder, which uses Python or R notebooks.
+3. [ ] [Data Analysis with Python](https://www.coursera.org/learn/data-analysis-with-python/home/welcome) (IBM)With *Python for Data Analysis* (McKinney). This is the pandas for `tools/markout/`.
+4. [ ] [Advanced OO & Generic Programming in C++](https://www.coursera.org/learn/packt-advanced-object-oriented-generic-programming-in-cplusplus-dxj1v/home/welcome)skimGrade 17%. Templates sections only, when you need them.
 
 ### Friday evening: reading
 
-1. [ ] [English: Word Forms and Simple Present](https://www.coursera.org/learn/word-forms-simple-present-tense/home/welcome)79%. Then [Questions, Progressive and Future](https://www.coursera.org/learn/questions-present-progressive-future-tenses/home/welcome) (31%) and [Simple Past](https://www.coursera.org/learn/simple-past-tense/home/welcome).
+1. [ ] [English: Questions, Progressive and Future](https://www.coursera.org/learn/questions-present-progressive-future-tenses/home/welcome)optionalWord Forms is complete (75%). Then Simple Past if you want it.
 2. [ ] *Trading and Exchanges* (Harris)From April 2027, before Phase 4.
 3. [ ] *Algorithmic and High-Frequency Trading* (Cartea, Jaimungal, Penalva): market-making chapters
-4. [ ] “The Probability of Backtest Overfitting” (Bailey et al.)Before trusting any number from the markout study.
+4. [ ] Hypothesis testing: *OpenIntro Statistics* (free), inference chaptersThe CU Boulder series covers estimation, not testing. The go/no-go needs both.
+5. [ ] “The Probability of Backtest Overfitting” (Bailey et al.)Before trusting any number from the markout study.
 
 ## This week
 
-1. **Fri 2 Oct, 21:00:** finish the [Google AI for Data Analysis](https://www.coursera.org/learn/google-ai-for-data-analysis/home/welcome) challenge (10 min). Google AI then stops at course 6.
-2. **Sat 3 Oct and Mon 5 Oct, 08:00:** UIUC Image Transform project.
-3. **Sat 3 Oct, 21:00:** first weekly review.
-4. **From Tue 6 Oct, 08:00:** blustone, starting with the `fixed_point` tests.
+1. **Fri 2 Oct, 21:00:** finish [Google AI for Data Analysis](https://www.coursera.org/learn/google-ai-for-data-analysis/home/welcome) (66.67%, estimated today). Google AI then stops at course 6.
+2. **Sat 3 Oct, 08:00:** check that Coursera itself marks Object-Oriented Data Structures in C++ as complete (your export uses 70% as "completed"). If yes, start the `fixed_point` tests.
+3. **Sat 3 Oct, 12:30:** Algebra self-test. Decide whether Algebra stays in the queue.
+4. **Sat 3 Oct, 21:00:** first weekly review. Unenroll from or hide the dropped courses so the dashboard shows only the active ones.
 
 ## The year at a glance
 
 1. ### Oct–Dec 2026
 
-   Mathematical Thinking (or Algebra); Algorithmic Toolbox; Packt Concurrency. blustone Phases 0–1 fixes.
+   Algebra, then start calculus; Algorithmic Toolbox; Packt Concurrency. blustone Phases 0–1 fixes.
 
 2. ### Jan–Mar 2027
 
-   Combinatorics & Probability, CU Boulder statistics 1–2; UCSD Data Structures; IBM Python. blustone Phase 3, capture running.
+   Calculus; UCSD Data Structures; IBM Python. blustone Phase 3, capture running.
 
-3. ### Apr–Jun 2027
+3. ### Apr–Jul 2027
 
-   CU Boulder course 3, linear algebra; IBM Data Analysis, McKinney; Harris. blustone Phase 4 markout study.
+   CU Boulder 1 and 3; IBM Data Analysis, McKinney; Harris. blustone Phase 4 pipeline.
 
-4. ### Jul–Sep 2027
+4. ### Aug–Oct 2027
 
-   Cartea et al., overfitting paper; interview practice. Go/no-go decision and public write-up.
+   CU Boulder 2, OpenIntro testing, Cartea, overfitting paper, interview practice. Go/no-go decision and public write-up.
 
 ## Paused or dropped
 
+- Mathematical Thinking in CS: paused, not on the critical path
+- Combinatorics and Probability: moved to interview practice
+- C++ Programming Fundamentals (Microsoft): beginner level
+- Fundamentals of Object-Oriented Programming in C++: beginner level
+- Practical Guide to C++ Smart Pointers: banned in core anyway
+- Object-Oriented Design: Java-style OOP
+- CCNA Foundations: paused; Cisco IOS is off path
+- Intro to High-Performance and Parallel Computing: later
+- AI For Everyone: overlaps Google AI
+- Data Science Methodology: off path
+- Game Theory: paused
 - Google AI, courses 7–8: off path
-- UIUC CS Fundamentals, courses 2–3: overlaps UCSD
-- UCSD Strings, Advanced Algorithms, Genome Assembly: not needed
-- Discrete Math, courses 3–5: not needed
-- Algebra: Polynomials and Roots: not needed
-- Math for ML: Calculus, PCA: later
-- Microsoft Intro to C++: beginner level
-- Packt Smart Pointers: banned in core anyway
-- Software Design & Architecture: Java-style OOP
-- Stanford Game Theory: paused
-- High-Performance Computing: later, course 2 only
-- IBM Data Science, all except courses 4 and 7: beginner or off path
 
 ## Four rules
 
