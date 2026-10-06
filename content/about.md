@@ -26,7 +26,7 @@ slug: "about"
 
 # Study plan: English first, then math, blustone and the quant path
 
-Target role: quant developer / low-latency C++ engineer. Next step: study at HKU (see the [HKU plan](/hku/)).
+Target role: quant developer / low-latency C++ engineer. Next step: study at HKU (see the [HKU plan](/posts/hku/)).
 
 Priority order: **English, math, blustone**. One job per slot. At most three courses active at once. Hard thinking in the morning; active English practice after lunch, when energy is low.
 
