@@ -1,100 +1,98 @@
-/* ===== RETRO CRT TERMINAL THEME ===== */
+/* ===== JAPANESE MINIMALIST THEME ===== */
 
 * {
   box-sizing: border-box;
 }
 
 html, body {
-  background-color: #0b0f0b;
-  color: #33ff33;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 18px;
-  line-height: 1.6;
-  text-shadow: 0 0 3px rgba(51, 255, 51, 0.5);
+  background-color: #fcfbf9; /* Soft warm paper tone (Washi aesthetic) */
+  color: #2b2b2b;            /* Muted charcoal for relaxed reading */
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  font-size: 16px;
+  line-height: 1.8;          /* Generous line height for a calm rhythm */
+  letter-spacing: 0.03em;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
-
-/* CRT Scanlines Overlay */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
-  background-size: 100% 4px;
+  max-width: 680px;          /* Narrower column for focused layout */
+  margin: 60px auto;
+  padding: 0 24px;
 }
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-  color: #66ff66;
+  color: #111111;
   font-family: inherit;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-top: 2em;
+  margin-bottom: 0.8em;
 }
 
 h2 {
-  border-bottom: 2px dashed #008800;
-  padding-bottom: 6px;
+  font-size: 1.35rem;
+  border-bottom: 1px solid #e6e2dc; /* Subtle paper-edge border */
+  padding-bottom: 8px;
 }
 
 /* Links */
 a {
-  color: #aaffaa;
-  text-decoration: underline;
+  color: #c84b31;            /* Japanese Vermilion (Shu-iro / 朱色) accent */
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  transition: opacity 0.2s ease;
 }
 
 a:hover {
-  background-color: #33ff33;
-  color: #000000;
+  opacity: 0.65;
+  background-color: transparent;
   text-decoration: none;
-  text-shadow: none;
 }
 
 /* Horizontal Rule */
 hr {
   border: none;
-  border-top: 1px dashed #33ff33;
-  margin: 20px 0;
+  border-top: 1px solid #e6e2dc;
+  margin: 40px 0;
 }
 
-/* Code & Pre Blocks (Fixed for Vintage Newspaper) */
+/* Code & Pre Blocks */
 pre, code, pre code {
-  font-family: "Courier New", Courier, monospace;
-  background-color: #e5dac1 !important; /* Slightly darker newsprint paper shade */
-  color: #111111 !important;            /* Pure dark text for readability */
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  background-color: #f4f1ea !important; /* Muted stone paper shade */
+  color: #2b2b2b !important;
 }
 
 pre {
-  padding: 16px;
-  border: 1px solid #111111;
+  padding: 18px;
+  border: 1px solid #e6e2dc;
+  border-radius: 2px;
   overflow-x: auto;
-  box-shadow: 2px 2px 0px #111111; /* Vintage press shadow effect */
+  box-shadow: none;
+  font-size: 0.88em;
+  line-height: 1.6;
 }
 
 code {
-  padding: 2px 5px;
-  font-size: 0.9em;
+  padding: 2px 6px;
+  font-size: 0.88em;
+  border-radius: 2px;
 }
 
-/* Force Chroma syntax highlighter elements inside code blocks to remain readable */
+/* Syntax Highlighting */
 pre code * {
   background-color: transparent !important;
-  color: #111111 !important;
+  color: #2b2b2b !important;
   text-shadow: none !important;
 }
 
-/* Accent specific code elements for subtle editorial styling */
-pre .k, pre .kd, pre .kn { color: #8b0000 !important; font-weight: bold; } /* Keywords in dark red */
-pre .s, pre .s1, pre .s2 { color: #2e5b88 !important; }                     /* Strings in slate blue */
-pre .c, pre .c1, pre .ch { color: #666666 !important; font-style: italic; } /* Comments in gray */
+/* Subdued natural syntax highlights */
+pre .k, pre .kd, pre .kn { color: #c84b31 !important; font-weight: 500; } /* Japanese Vermilion */
+pre .s, pre .s1, pre .s2 { color: #3b6e8c !important; }                    /* Indigo Blue (Aizome) */
+pre .c, pre .c1, pre .ch { color: #8e8a83 !important; font-style: italic; } /* Muted Stone Gray */
 
 /* MathJax & KaTeX color override */
 mjx-container, .katex {
-  color: #33ff33 !important;
+  color: #2b2b2b !important;
 }
