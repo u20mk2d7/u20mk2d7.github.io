@@ -165,3 +165,38 @@ One hour, one task. End every session by writing the next step in `TODO.md`.
 2. If you miss a slot, skip it. Saturday morning is the only catch-up slot.
 3. The weekly review covers what finished, what moves up its queue, and `TODO.md`. It never adds new courses.
 4. One thing per slot. If the slot says English, it's English.
+
+Does a master's fit in your timeline?
+
+Yes, probably. At 27 you're not late. This is a rough estimate, and it depends on how much of your cao đẳng NEU accepts:
+
+Bachelor's via NEU e-learning: about 2 to 4 years, depending on credit transfer. Realistically you'd finish around age 29 to 31.
+Master's afterward: about 2 years, so around 31 to 33.
+
+Quant employers care more about skills and projects like blustone than about the exact degree. A degree mainly opens doors: it's often required for master's admission abroad and for some jobs in finance. So NEU is worth doing if you want the credential, but it shouldn't crowd out blustone.
+
+Step-by-step
+
+Step 1: Get answers from NEU before enrolling (this month). Email or visit NEU's e-learning office and ask:
+
+Does the Finance & Banking program accept my cao đẳng credits, and how many? (IT credits may transfer poorly to finance.)
+How many years will I need with those credits?
+What is the total tuition, and is there a payment plan?
+Is the NEU bachelor's accepted for master's admission at HKU and other target schools? Ask HKU admissions too.
+
+Don't pay until you have written answers on these.
+
+Step 2: Pick a slot. I'd suggest:
+
+Keep blustone at 08:00 and math at 09:00, since those are your core.
+Give NEU the Mon and Wed 21:00 evening slots, one or two modules at a time.
+Cut the Tuesday DSA and Thursday C++ sessions down to weekend work, or pause them until the first NEU term ends.
+Keep English at lunch. You need IELTS regardless of which route you take.
+
+Step 3: Set a weekly budget. Right now the plan is about 10 hours of English, 5 of math, 6 of blustone, and 2.5 of DSA and C++, plus 10 minutes of Anki a day. Adding NEU will probably take 6 to 10 hours a week. Decide now what gets reduced, so you don't end up with burnout by month three.
+
+Step 4: Review at the end of the first term. Check three things: are your grades holding, is blustone still moving, and are your IELTS mocks improving? If one is slipping, cut scope rather than adding hours.
+
+Step 5: Decide on the master's later. Around 2028 you'll know your bachelor's progress, your IELTS score, and whether HKU or another school will take your NEU degree. Make the master's decision then.
+
+One question before you commit: how many hours a week can you realistically give to study once blustone is running? That number decides whether NEU fits in the plan or whether you should stage it after the English and math core.
