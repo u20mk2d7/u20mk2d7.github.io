@@ -1,7 +1,7 @@
 ---
 title: "About"
 date: 2026-08-04
-lastmod: 2026-10-12
+lastmod: 2026-10-15
 draft: false
 tags: ["about"]
 slug: "about"
@@ -24,32 +24,33 @@ slug: "about"
 - [VNOI Online Judge](https://oj.vnoi.info/user/u20mk2d7)
 - [CSES](https://cses.fi/user/391678)
 
-# Study plan: English, math, blustone, quant path
+# Study plan: English, math, quant_proj, quant path
 
-Last updated: 12 Oct 2026. Target role: quant developer / low-latency C++ engineer.
+Last updated: 15 Oct 2026. Target role: quant developer / low-latency C++ engineer.
 
-**Priority:** English, then math, then blustone.
+**Priority:** English, then math, then quant_proj.
 **Limit:** three active courses at once. Everything else is queued.
-**Slots:** one job per slot. Hard thinking in the morning. English after lunch, when energy is low.
+**Slots:** one job per slot. Hard thinking in the morning. English after lunch and during commute.
 **Enrolled is not studying.** A course becomes active only when it gets a slot.
 
 ## The week
 
-| Day | 08:00–09:00 (blustone) | 09:00–10:00 (math) | Lunch 12:30–14:00 (English) | Evening 21:00–22:15 |
-| --- | --- | --- | --- | --- |
-| Mon | blustone: `fixed_point` | Algebra I | listening + speaking | English: grammar course + Anki |
-| Tue | blustone | Algebra I | listening + speaking | C++: Modern C++ (course 3) |
-| Wed | blustone | Algebra I | listening + speaking | English: *Grammar in Use* + reading |
-| Thu | blustone | Algebra I | listening + speaking | C++: Modern C++ (course 3) |
-| Fri | blustone | Math review and quiz | listening + speaking | English: one paragraph of writing |
-| Sat | blustone or catch-up | English: timed writing or mock test | listening + speaking | Weekly review, 30 min |
-| Sun | Rest | Rest | Rest | Rest |
+| Day | 07:30–08:00 (Commute In) | 08:00–09:00 (quant_proj) | 09:00–10:00 (math) | Lunch 12:30–14:00 (English) | 17:00–17:30 (Commute Out) | Evening 21:00–22:15 |
+| --- | --- | --- | --- | --- | --- | --- |
+| Mon | BBC 6 Min / Listening | quant_proj: `fixed_point` | Algebra I | listening + speaking | Anki vocab / rest | English: grammar course + Anki |
+| Tue | BBC 6 Min / Listening | quant_proj | Algebra I | listening + speaking | Anki vocab / rest | C++: Modern C++ (course 3) |
+| Wed | BBC 6 Min / Listening | quant_proj | Algebra I | listening + speaking | Anki vocab / rest | English: *Grammar in Use* + reading |
+| Thu | BBC 6 Min / Listening | quant_proj | Algebra I | listening + speaking | Anki vocab / rest | C++: Modern C++ (course 3) |
+| Fri | BBC 6 Min / Listening | quant_proj | Math review and quiz | listening + speaking | Anki vocab / rest | English: one paragraph of writing |
+| Sat | — | quant_proj or catch-up | English: timed writing or mock test | listening + speaking | — | Weekly review, 30 min |
+| Sun | Rest | Rest | Rest | Rest | Rest | Rest |
 
 Update the table at the weekly review when a course finishes or moves.
 
+**Commute:** 07:30–08:00 passive English audio (BBC *6 Minute English*, shadowing). 17:00–17:30 mobile Anki reviews (10–15 min) or audio podcasts.
 **Lunch:** 12:30–12:50 eat, 12:50–13:10 nap (20 minutes maximum, set an alarm), 13:10–14:00 BBC *6 Minute English*, then shadowing out loud.
 
-**Per week:** about 10 h English, 5 h math, 6 h blustone, 2.5 h C++. Plus 10 minutes of Anki daily.
+**Per week:** about 12.5 h English (including commutes), 5 h math, 6 h quant_proj, 2.5 h C++. Plus 10 minutes of Anki daily.
 
 ## Specializations
 
@@ -60,7 +61,7 @@ Update the table at the weekly review when a course finishes or moves.
 | [Complete Modern C++](https://www.coursera.org/specializations/packt-complete-modern-c-c-11-14-17) | Active, Tue and Thu 21:00 | Course 3: Features & Concurrency | Course 1 done. Course 2: templates only, later |
 | [Data Structures and Algorithms](https://www.coursera.org/specializations/data-structures-algorithms) | Queued | Course 1: Algorithmic Toolbox | Starts when Algebra course 1 is done |
 | [Foundations of Probability and Statistics](https://www.coursera.org/specializations/foundations-probability-statistics) | Queued | Course 1: Probability Foundations | Needs calculus and linear algebra first. Target 2027 |
-| [High-Performance and Parallel Computing](https://www.coursera.org/specializations/high-performance-parallel-computing) | Queued | Later | Start after Modern C++ course 3. Relevant to blustone latency work |
+| [High-Performance and Parallel Computing](https://www.coursera.org/specializations/high-performance-parallel-computing) | Queued | Later | Start after Modern C++ course 3. Relevant to quant_proj latency work |
 | [Discrete Mathematics for CS](https://www.coursera.org/specializations/discrete-mathematics) | Paused | Course 2: Combinatorics and Probability | Interview practice, later |
 
 ## English
@@ -73,8 +74,8 @@ Current level: about band 3, to be confirmed by the baseline test. Goal: **IELTS
 
 1. [ ] Finish the Coursera grammar series: [Questions, Present Progressive and Future](https://www.coursera.org/learn/questions-present-progressive-future-tenses/home/welcome), then [Simple Past](https://www.coursera.org/learn/simple-past-tense/home/welcome).
 2. [ ] *Essential Grammar in Use* (Murphy), then *English Grammar in Use*. One unit per Wednesday session.
-3. [ ] Vocabulary with Anki: 10 new words a day, in example sentences.
-4. [ ] Listening: BBC Learning English *6 Minute English*. Listen, read the transcript, shadow out loud.
+3. [ ] Vocabulary with Anki: 10 new words a day (during commute or evening slot).
+4. [ ] Listening: BBC Learning English *6 Minute English* during morning commute & lunch. Shadow out loud.
 5. [ ] Reading: graded readers first, then short news articles.
 6. [ ] Writing: one paragraph each Friday. Get it corrected, rewrite it.
 7. [ ] Speaking: out loud every lunch. A tutor or language partner once a week if possible.
@@ -96,7 +97,7 @@ Current level: about band 3, to be confirmed by the baseline test. Goal: **IELTS
 5. [ ] Probability and statistics (queued, after items 3 and 4): Probability Foundations, Statistical Estimation, Markov Chains and Monte Carlo. Before the estimation course: confidence intervals feed the go/no-go.
 6. [ ] Hypothesis testing: *OpenIntro Statistics* (free), inference chapters.
 
-## Mornings 08:00–09:00: blustone
+## Mornings 08:00–09:00: quant_proj
 
 One hour, one task. End every session by writing the next step in `TODO.md`.
 
@@ -112,7 +113,7 @@ One hour, one task. End every session by writing the next step in `TODO.md`.
 **Active now (Tue and Thu, 21:00):**
 
 1. [ ] [Modern C++ Features & Concurrency](https://www.coursera.org/learn/packt-modern-cplusplus-features-concurrency-djj1a/home/welcome) (Packt), with *C++ Concurrency in Action* (Williams).
-2. [ ] Cache lines, false sharing, memory ordering, profiling with `perf` and flame graphs. Measure each stage of the blustone critical path in an optimised build.
+2. [ ] Cache lines, false sharing, memory ordering, profiling with `perf` and flame graphs. Measure each stage of the quant_proj critical path in an optimised build.
 
 **Queued, in order:**
 
@@ -123,7 +124,7 @@ One hour, one task. End every session by writing the next step in `TODO.md`.
 
 ## Open decisions
 
-- **NEU e-learning (Finance & Banking):** not enrolled. Decide after written answers on credit transfer from the cao đẳng, total duration, tuition, and whether the degree is accepted for master's admission at HKU.
+- **NEU e-learning (Finance & Banking):** registered/enrolled. Align module coursework with quantitative and market microstructure projects.
 - **HKU route:** choose between NEU then master's, and a PolyU SPEED top-up. Decide from the admissions reply.
 - **Investing:** choose one topic after the job starts. Not yet chosen.
 
@@ -136,17 +137,17 @@ One hour, one task. End every session by writing the next step in `TODO.md`.
 ## Next week (12–18 Oct 2026)
 
 1. **Mon 12 Oct, 21:00:** English grammar course 2. Start the Anki routine if not already running.
-2. **Tue 13 Oct, 08:00:** blustone, `fixed_point` tests.
+2. **Tue 13 Oct, 08:00:** quant_proj, `fixed_point` tests.
 3. **Tue 13 Oct, 09:00:** Algebra course 1 self-test. Keep or drop it, no lingering.
 4. **This week:** send the questions in the HKU plan to HKU admissions. Confirm the `/hku/` link works.
 5. **Sat 17 Oct, 21:00:** weekly review. Hide or unenroll from the paused courses.
 
 ## The year at a glance
 
-1. **Oct 2026 – Mar 2027:** English Stage 1. Algebra, then calculus. Modern C++ course 3, then Algorithmic Toolbox. blustone Phases 0–1 fixes, start Phase 3. HKU route chosen from the admissions reply.
+1. **Oct 2026 – Mar 2027:** English Stage 1. Algebra, then calculus. Modern C++ course 3, then Algorithmic Toolbox. quant_proj Phases 0–1 fixes, start Phase 3. HKU route chosen from the admissions reply.
 2. **End of March 2027, mid-point review:** Is the mock test near band 5? Is calculus done? Is capture producing usable data? If not, cut scope rather than add hours.
-3. **Apr – Sep 2027:** English Stage 2. Linear algebra, probability courses. Data Structures, IBM Python. blustone Phase 3 running and capturing.
-4. **Oct 2027 – Mar 2028:** IELTS practice and mock tests. Statistics courses, OpenIntro. High-Performance Computing. blustone Phase 4 pipeline.
+3. **Apr – Sep 2027:** English Stage 2. Linear algebra, probability courses. Data Structures, IBM Python. quant_proj Phase 3 running and capturing.
+4. **Oct 2027 – Mar 2028:** IELTS practice and mock tests. Statistics courses, OpenIntro. High-Performance Computing. quant_proj Phase 4 pipeline.
 5. **2028:** official IELTS when mocks are steady at the target, then the HKU application. Markout analysis, go/no-go, public write-up.
 
 ## Paused or dropped
@@ -162,7 +163,7 @@ One hour, one task. End every session by writing the next step in `TODO.md`.
 
 ## Four rules
 
-1. End every blustone session by writing the next concrete step in `TODO.md`.
+1. End every quant_proj session by writing the next concrete step in `TODO.md`.
 2. If you miss a slot, skip it. Saturday morning is the only catch-up slot.
 3. The weekly review covers what finished, what moves up its queue, and `TODO.md`. It never adds new courses.
 4. One thing per slot. If the slot says English, it's English.
