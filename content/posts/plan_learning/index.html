@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Study plan: quant_proj and the quant path</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDF1F4; --surface:#FFFFFF; --ink:#18263A; --muted:#5B6879; --rule:#CCD5DE;
+  --deep:#0E6B66; --math:#4A4EA3; --eng:#2F7D57; --eve:#A86B12; --rest:#8A94A3;
+  --deep-soft:#D7ECEA; --math-soft:#E1E2F4; --eng-soft:#D9EEE2; --eve-soft:#F3E7D2;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#131A23; --surface:#1B2430; --ink:#E4EAF1; --muted:#9AA6B5; --rule:#2E3A48;
+    --deep:#4FC2B9; --math:#9A9EF0; --eng:#6CC89A; --eve:#E2A64C; --rest:#6F7A89;
+    --deep-soft:#173A39; --math-soft:#262850; --eng-soft:#173826; --eve-soft:#3A2E1A;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#131A23; --surface:#1B2430; --ink:#E4EAF1; --muted:#9AA6B5; --rule:#2E3A48;
+  --deep:#4FC2B9; --math:#9A9EF0; --eng:#6CC89A; --eve:#E2A64C; --rest:#6F7A89;
+  --deep-soft:#173A39; --math-soft:#262850; --eng-soft:#173826; --eve-soft:#3A2E1A;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:400 16px/1.55 "Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-variant-numeric:tabular-nums}
+main{max-width:780px;margin:0 auto;padding:40px 20px 72px}
+h1{font:600 clamp(28px,5vw,40px)/1.15 "Newsreader",Georgia,serif;margin:0 0 10px;letter-spacing:-.01em}
+h2{font:600 24px/1.25 "Newsreader",Georgia,serif;margin:56px 0 14px}
+h3{font-size:17px;margin:28px 0 8px;font-weight:600}
+p{margin:0 0 12px;max-width:68ch}
+.lede{color:var(--muted);font-size:17px}
+a{color:inherit;text-decoration-color:var(--rule);text-underline-offset:3px}
+a:hover{text-decoration-color:currentColor}
+:focus-visible{outline:2px solid var(--math);outline-offset:2px;border-radius:3px}
+
+/* Day band */
+.band{margin:32px 0 8px;background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:20px 18px 16px}
+.now{font-size:15px;margin:0 0 16px;min-height:1.5em}
+.now strong{font-weight:600}
+.track{position:relative;height:44px;border-radius:6px;background:repeating-linear-gradient(90deg,transparent 0 calc(100%/16 - 1px),var(--rule) calc(100%/16 - 1px) calc(100%/16))}
+.seg{position:absolute;top:0;bottom:0;border-radius:5px;display:flex;align-items:center;padding:0 6px;font-size:12px;font-weight:600;color:#fff;overflow:hidden;white-space:nowrap}
+.seg.deep{background:var(--deep)} .seg.math{background:var(--math)} .seg.eng{background:var(--eng)} .seg.eve{background:var(--eve)}
+.marker{position:absolute;top:-6px;bottom:-6px;width:2px;background:var(--ink);display:none}
+.hours{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:6px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--muted);margin-top:10px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+
+/* Week */
+.scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:700px;font-size:14px}
+th,td{padding:10px 10px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+tr:last-child td{border-bottom:0}
+thead th{font-weight:600;font-size:12.5px;color:var(--muted)}
+thead th span{display:block;color:var(--ink);font-size:13px}
+td.day{font-weight:600;width:52px}
+.c-deep{border-left:3px solid var(--deep)} .c-math{border-left:3px solid var(--math)} .c-eng{border-left:3px solid var(--eng)} .c-eve{border-left:3px solid var(--eve)}
+tr.today td{background:var(--math-soft)}
+.restcell{color:var(--rest)}
+.totals{color:var(--muted);font-size:14px;margin-top:10px}
+
+/* Queues */
+.queue{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:6px 16px 10px;margin-bottom:16px}
+.queue h3{margin:12px 0 2px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.queue h3 small{font-weight:500;color:var(--muted);font-size:13px}
+.queue.deep{border-left:4px solid var(--deep)} .queue.math{border-left:4px solid var(--math)} .queue.eng{border-left:4px solid var(--eng)} .queue.eve{border-left:4px solid var(--eve)}
+ol.items{list-style:none;counter-reset:q;padding:0;margin:6px 0 0}
+ol.items li{counter-increment:q;display:grid;grid-template-columns:22px 26px 1fr;gap:6px;align-items:start;padding:7px 0;border-top:1px solid var(--rule)}
+ol.items li:first-child{border-top:0}
+ol.items li::before{content:counter(q);color:var(--muted);font-size:13px;padding-top:2px}
+ol.items input{width:18px;height:18px;margin:3px 0 0;accent-color:var(--deep)}
+ol.items li.done .t{text-decoration:line-through;color:var(--muted)}
+.meta{display:block;color:var(--muted);font-size:13.5px}
+.tag{display:inline-block;font-size:12px;padding:1px 7px;border-radius:999px;background:var(--eve-soft);margin-left:4px;vertical-align:1px}
+.prog{font-size:13px;color:var(--muted)}
+
+/* Timeline */
+ol.time{list-style:none;padding:0;margin:0;border-left:2px solid var(--rule)}
+ol.time li{position:relative;padding:0 0 22px 20px}
+ol.time li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--math)}
+ol.time li.current::before{background:var(--math)}
+ol.time h3{margin:0 0 4px}
+ol.time p{color:var(--muted);margin:0}
+
+.paused{columns:2 260px;column-gap:28px;padding-left:18px;margin:0}
+.paused li{margin-bottom:6px;break-inside:avoid}
+.paused .why{color:var(--muted)}
+ol.rules{padding-left:22px} ol.rules li{margin-bottom:8px;max-width:68ch}
+.foot{margin-top:48px;color:var(--muted);font-size:13.5px}
+button.reset{font:inherit;font-size:13.5px;background:none;border:1px solid var(--rule);color:var(--muted);border-radius:6px;padding:4px 10px;cursor:pointer}
+@media (prefers-reduced-motion:no-preference){ol.items li .t{transition:color .2s}}
+</style>
+</head>
+<body>
+<main>
+<h1>Study plan: quant_proj and the quant path</h1>
+<p class="lede">Target role: quant developer / low-latency C++ engineer. Priority: English, then math, then quant_proj. One job per slot, at most three courses active at once. Enrolled is not studying: a course gets a slot or it waits. Tick items as you finish them; ticks are saved in this browser.</p>
+
+<section class="band" aria-label="Today's study slots">
+  <p class="now" id="now">Loading today's plan…</p>
+  <div class="track" id="track">
+    <div class="seg eng" style="left:3.125%;width:3.125%"></div>
+    <div class="seg deep" style="left:6.25%;width:6.25%">Quant</div>
+    <div class="seg math" style="left:12.5%;width:6.25%">Math</div>
+    <div class="seg eng" style="left:34.375%;width:9.375%">English</div>
+    <div class="seg eng" style="left:62.5%;width:3.125%"></div>
+    <div class="seg eve" style="left:87.5%;width:7.8125%">Evening</div>
+    <div class="marker" id="marker"></div>
+  </div>
+  <div class="hours" aria-hidden="true"><span>07:00</span><span>11:00</span><span>15:00</span><span>19:00</span><span>23:00</span></div>
+  <div class="legend" aria-hidden="true">
+    <span><i style="background:var(--deep)"></i>quant_proj</span>
+    <span><i style="background:var(--math)"></i>math</span>
+    <span><i style="background:var(--eng)"></i>English and commute</span>
+    <span><i style="background:var(--eve)"></i>evening</span>
+  </div>
+</section>
+
+<h2>The week</h2>
+<div class="scroll">
+<table>
+  <thead><tr>
+    <th>Day</th>
+    <th class="c-eng"><span>07:30–08:00</span>Commute in</th>
+    <th class="c-deep"><span>08:00–09:00</span>quant_proj</th>
+    <th class="c-math"><span>09:00–10:00</span>Math</th>
+    <th class="c-eng"><span>12:30–14:00</span>Lunch English</th>
+    <th class="c-eng"><span>17:00–17:30</span>Commute out</th>
+    <th class="c-eve"><span>21:00–22:15</span>Evening</th>
+  </tr></thead>
+  <tbody id="week">
+    <tr data-d="1"><td class="day">Mon</td><td class="c-eng">BBC 6 Minute English, shadowing</td><td class="c-deep">fixed_point: failing tests</td><td class="c-math">Algebra I: lesson and self-check</td><td class="c-eng">Listening and speaking</td><td class="c-eng">Anki, 10 new words</td><td class="c-eve">English: grammar course 2</td></tr>
+    <tr data-d="2"><td class="day">Tue</td><td class="c-eng">BBC 6 Minute English, shadowing</td><td class="c-deep">fixed_point: the fix</td><td class="c-math">Algebra I</td><td class="c-eng">Listening and speaking</td><td class="c-eng">Anki, 10 new words</td><td class="c-eve">C++: Modern C++ course 3</td></tr>
+    <tr data-d="3"><td class="day">Wed</td><td class="c-eng">BBC 6 Minute English, shadowing</td><td class="c-deep">padding[34], LimitMaker, Micros</td><td class="c-math">Algebra I</td><td class="c-eng">Listening and speaking</td><td class="c-eng">Anki, 10 new words</td><td class="c-eve">English: Grammar in Use unit and reading</td></tr>
+    <tr data-d="4"><td class="day">Thu</td><td class="c-eng">BBC 6 Minute English, shadowing</td><td class="c-deep">Next step in TODO.md</td><td class="c-math">Algebra I</td><td class="c-eng">Listening and speaking</td><td class="c-eng">Anki, 10 new words</td><td class="c-eve">C++: Modern C++ course 3</td></tr>
+    <tr data-d="5"><td class="day">Fri</td><td class="c-eng">BBC 6 Minute English, shadowing</td><td class="c-deep">Next step in TODO.md</td><td class="c-math">Math review and quiz</td><td class="c-eng">Listening and speaking</td><td class="c-eng">Anki, 10 new words</td><td class="c-eve">English: one paragraph of writing</td></tr>
+    <tr data-d="6"><td class="day">Sat</td><td class="restcell">—</td><td class="c-deep">Catch-up only, if needed</td><td class="c-math">English: timed writing or mock test</td><td class="c-eng">Listening and speaking</td><td class="restcell">—</td><td class="c-eve">Weekly review, 30 min</td></tr>
+    <tr data-d="0"><td class="day">Sun</td><td class="restcell" colspan="6">Rest. No study, no project.</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="totals">About 12 h English (lunch, commutes, evening), 5 h math, 5 h quant_proj, 2.5 h C++, plus 10 minutes of Anki every day.</p>
+
+<h2>What each slot works on</h2>
+<p>Work top to bottom. When an item is done, the next one takes its place. Nothing else starts.</p>
+
+<div class="queue deep">
+  <h3>08:00 weekdays: quant_proj <small class="prog" data-prog="deep"></small></h3>
+  <ol class="items" data-q="deep">
+    <li><input type="checkbox" aria-label="Done"><span class="t"><code>fixed_point</code>: write the failing tests, then the fix<span class="meta">Tests under asan-ubsan first.</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t"><code>padding[34]</code>, <code>OrderType::LimitMaker</code>, <code>Micros</code><span class="meta">TODO.md NOW items.</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t">Measure RTT to Binance (architecture §12 Q1)<span class="meta">If p50 is above 20 ms, a Tokyo VPS moves up the list.</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t">Phase 3: ingress, book, capture writer running<span class="meta">Start capturing early so data builds up for Phase 4.</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t">Phase 4: replay and markout study<span class="meta">Build the pipeline now; run the analysis after the estimation course.</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t">Go/no-go, regulatory re-check (§12 Q5), public write-up</span></li>
+  </ol>
+</div>
+
+<div class="queue math">
+  <h3>09:00 weekdays and Saturday: math <small class="prog" data-prog="math"></small></h3>
+  <ol class="items" data-q="math">
+    <li><input type="checkbox" aria-label="Done"><span class="t"><a href="https://www.coursera.org/learn/algebra-i/home/welcome">Algebra: Equations &amp; Inequalities</a><span class="tag">self-test first</span><span class="meta">Grade 21%. If the quizzes feel easy, tick it and move on.</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t"><a href="https://www.coursera.org/learn/algebra-ii/home/welcome">Algebra: Functions &amp; Applications</a><span class="tag">if needed</span><span class="meta">Functions, exponentials and logs: the entry ticket to calculus.</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t">Single-variable calculus: limits, derivatives, integrals, series<span class="tag">free</span><span class="meta">Khan Academy AP Calculus AB then BC, or MIT OCW 18.01. CU Boulder requires calculus through Calculus II.</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t"><a href="https://www.coursera.org/learn/linear-algebra-machine-learning/home/welcome">Mathematics for ML: Linear Algebra</a><span class="meta">Covariance, regression, PCA. Needed before the probability courses.</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t"><a href="https://www.coursera.org/learn/probability-theory-foundation-for-data-science?specialization=foundations-probability-statistics">Probability Foundations for Data Science and AI</a> (CU Boulder 1)<span class="tag">queued</span><span class="meta">About 43 hours. Starts after calculus and linear algebra.</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t"><a href="https://www.coursera.org/learn/statistical-inference-for-estimation-in-data-science?specialization=foundations-probability-statistics">Statistical Estimation for Data Science and AI</a> (CU Boulder 3)<span class="tag">queued</span><span class="meta">About 29 hours. Confidence intervals are what the go/no-go needs. Taken before course 2.</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t"><a href="https://www.coursera.org/learn/discrete-time-markov-chains-monte-carlo-methods?specialization=foundations-probability-statistics">Discrete-Time Markov Chains and Monte Carlo Methods</a> (CU Boulder 2)<span class="tag">queued</span><span class="meta">About 33 hours. Monte Carlo is useful for simulating fills.</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t">Hypothesis testing: <em>OpenIntro Statistics</em> (free), inference chapters<span class="meta">The CU Boulder series covers estimation, not testing. The go/no-go needs both.</span></span></li>
+  </ol>
+</div>
+
+<div class="queue eng">
+  <h3>Lunch, commutes and evenings: English <small class="prog" data-prog="eng"></small></h3>
+  <ol class="items" data-q="eng">
+    <li><input type="checkbox" aria-label="Done"><span class="t"><a href="https://www.coursera.org/learn/questions-present-progressive-future-tenses/home/welcome">Questions, Present Progressive and Future</a> (grammar course 2)<span class="meta">Monday evening. Word Forms is done. Then Simple Past.</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t"><em>Essential Grammar in Use</em> (Murphy), then <em>English Grammar in Use</em><span class="meta">One unit per Wednesday evening, plus reading.</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t">Vocabulary with Anki: 10 new words a day<span class="meta">Commute out (17:00) and in short reviews. Use example sentences.</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t">Listening: BBC Learning English <em>6 Minute English</em><span class="meta">Morning commute and lunch. Read the transcript, then shadow out loud.</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t">Speaking: out loud at lunch<span class="meta">A tutor or language partner once a week if possible.</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t">Writing: one paragraph each Friday<span class="meta">Get it corrected, then rewrite it.</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t">Reading: graded readers first, then short news articles</span></li>
+  </ol>
+</div>
+
+<div class="queue eve">
+  <h3>Tuesday and Thursday evening: C++ <small class="prog" data-prog="cpp"></small></h3>
+  <ol class="items" data-q="cpp">
+    <li><input type="checkbox" aria-label="Done"><span class="t"><a href="https://www.coursera.org/learn/packt-modern-cplusplus-features-concurrency-djj1a/home/welcome">Modern C++ Features &amp; Concurrency</a> (Packt)<span class="meta">Read alongside <em>C++ Concurrency in Action</em> (Williams). The course stops at C++17.</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t">Cache lines, false sharing, memory ordering, <code>perf</code> and flame graphs<span class="meta">Measure each stage of the quant_proj critical path in an optimised build.</span></span></li>
+  </ol>
+</div>
+
+<div class="queue eve">
+  <h3>Queued: starts only when a slot frees up <small class="prog" data-prog="queue"></small></h3>
+  <ol class="items" data-q="queue">
+    <li><input type="checkbox" aria-label="Done"><span class="t"><a href="https://www.coursera.org/learn/algorithmic-toolbox/home/welcome">Algorithmic Toolbox</a> (UCSD)<span class="meta">Weekend sessions, after Algebra course 1. Grade 19%. Assignments in C++.</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t"><a href="https://www.coursera.org/learn/python-for-applied-data-science-ai/home/welcome">Python for Data Science, AI &amp; Development</a> (IBM)<span class="meta">Needed before the probability courses.</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t"><a href="https://www.coursera.org/learn/data-analysis-with-python/home/welcome">Data Analysis with Python</a> (IBM)<span class="meta">With <em>Python for Data Analysis</em> (McKinney). The pandas for <code>tools/markout/</code>.</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t">Interview practice, every two weeks<span class="meta">LeetCode, Codeforces, CSES, and <em>A Practical Guide to Quantitative Finance Interviews</em> (Zhou).</span></span></li>
+    <li><input type="checkbox" aria-label="Done"><span class="t"><a href="https://www.coursera.org/specializations/high-performance-parallel-computing">High-Performance and Parallel Computing</a><span class="meta">Start after Modern C++ course 3.</span></span></li>
+  </ol>
+</div>
+
+<h2>Open decisions</h2>
+<ol class="rules">
+  <li><strong>NEU e-learning (Finance &amp; Banking):</strong> enrolled, but no slot yet. Decide the weekly hours at the first weekly review, after you check credit transfer from your cao đẳng.</li>
+  <li><strong>HKU route:</strong> paused. Choose between NEU then a master's and a PolyU SPEED top-up when you restart it.</li>
+  <li><strong>Investing:</strong> choose one topic after the job starts.</li>
+</ol>
+
+<h2>Reading list (when English reaches Stage 2)</h2>
+<ol class="rules">
+  <li><em>Trading and Exchanges</em> (Harris), before the replay and markout study.</li>
+  <li><em>Algorithmic and High-Frequency Trading</em> (Cartea, Jaimungal, Penalva): market-making chapters.</li>
+  <li>“The Probability of Backtest Overfitting” (Bailey et al.): before trusting any markout number.</li>
+</ol>
+
+<h2>The year at a glance</h2>
+<ol class="time">
+  <li class="current"><h3>Now to December 2026</h3><p>English grammar and Algebra I. Modern C++ course 3. quant_proj fixes for Phases 0–1.</p></li>
+  <li><h3>January to March 2027</h3><p>Calculus. Linear algebra. Algorithmic Toolbox. quant_proj Phase 3, capture running. Mid-point review at the end of March: is calculus done, is capture producing data?</p></li>
+  <li><h3>April to July 2027</h3><p>English Stage 2: timed IELTS sections. Probability and estimation courses. quant_proj Phase 4 pipeline.</p></li>
+  <li><h3>August to October 2027</h3><p>Markout analysis, OpenIntro testing, Cartea, the overfitting paper. Interview practice. Go/no-go decision and public write-up.</p></li>
+</ol>
+
+<h2>Paused or dropped</h2>
+<ul class="paused">
+  <li>Mathematical Thinking in CS: <span class="why">paused</span></li>
+  <li>Discrete Mathematics, courses 1 and 3–5: <span class="why">paused</span></li>
+  <li>Algebra, course 3: <span class="why">dropped</span></li>
+  <li>Data Structures and Algorithms, courses 4–6: <span class="why">dropped</span></li>
+  <li>C++ Programming Fundamentals (Microsoft): <span class="why">beginner level</span></li>
+  <li>Fundamentals of Object-Oriented Programming in C++: <span class="why">beginner level</span></li>
+  <li>Practical Guide to C++ Smart Pointers: <span class="why">not used in core</span></li>
+  <li>Object-Oriented Design: <span class="why">off path</span></li>
+  <li>CCNA Foundations: <span class="why">paused</span></li>
+  <li>AI For Everyone: <span class="why">overlaps Google AI</span></li>
+  <li>Data Science Methodology: <span class="why">off path</span></li>
+  <li>Game Theory: <span class="why">paused</span></li>
+  <li>Google AI, courses 7–8: <span class="why">off path</span></li>
+  <li>HKU application: <span class="why">paused</span></li>
+</ul>
+
+<h2>Four rules</h2>
+<ol class="rules">
+  <li>End every quant_proj session by writing the next concrete step in <code>TODO.md</code>.</li>
+  <li>If you miss a slot, skip it. Saturday morning is the only catch-up slot.</li>
+  <li>The weekly review covers what finished, what moves up its queue, and <code>TODO.md</code>. It never adds new courses.</li>
+  <li>One thing per slot. If the slot says English, it's English.</li>
+</ol>
+
+<p class="foot">Ticks are stored only in this browser. <button class="reset" id="reset" type="button">Clear all ticks</button></p>
+</main>
+
+<script>
+(function(){
+  var KEY="quant-plan-v3";
+  var state={}, progs=[];
+  try{state=JSON.parse(localStorage.getItem(KEY)||"{}")||{};}catch(e){state={};}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+
+  document.querySelectorAll("ol.items").forEach(function(ol){
+    var q=ol.getAttribute("data-q");
+    var items=ol.querySelectorAll("li");
+    function prog(){
+      var n=0; items.forEach(function(li){if(li.classList.contains("done"))n++;});
+      var el=document.querySelector('[data-prog="'+q+'"]');
+      if(el) el.textContent=n+" of "+items.length+" done";
+    }
+    items.forEach(function(li,i){
+      var id=q+"-"+i, cb=li.querySelector("input");
+      if(state[id]){cb.checked=true;li.classList.add("done");}
+      cb.addEventListener("change",function(){
+        state[id]=cb.checked; li.classList.toggle("done",cb.checked); save(); prog();
+      });
+    });
+    prog(); progs.push(prog);
+  });
+
+  document.getElementById("reset").addEventListener("click",function(){
+    state={}; try{localStorage.removeItem(KEY);}catch(e){}
+    document.querySelectorAll("ol.items li").forEach(function(li){li.classList.remove("done");li.querySelector("input").checked=false;});
+    progs.forEach(function(f){f();});
+  });
+
+  // Slot order: 0 commute in, 1 quant_proj, 2 math, 3 lunch English, 4 commute out, 5 evening
+  var plan={
+    1:["BBC 6 Minute English","quant_proj: fixed_point tests","Algebra I","Listening and speaking","Anki, 10 new words","English: grammar course 2"],
+    2:["BBC 6 Minute English","quant_proj: fixed_point fix","Algebra I","Listening and speaking","Anki, 10 new words","C++: Modern C++ course 3"],
+    3:["BBC 6 Minute English","quant_proj: padding, LimitMaker, Micros","Algebra I","Listening and speaking","Anki, 10 new words","English: Grammar in Use and reading"],
+    4:["BBC 6 Minute English","quant_proj: next TODO.md step","Algebra I","Listening and speaking","Anki, 10 new words","C++: Modern C++ course 3"],
+    5:["BBC 6 Minute English","quant_proj: next TODO.md step","Math review and quiz","Listening and speaking","Anki, 10 new words","English: one paragraph of writing"],
+    6:[null,"quant_proj catch-up, if needed","English: timed writing or mock test","Listening and speaking",null,"Weekly review, 30 min"],
+    0:[null,null,null,null,null,null]
+  };
+  var slots=[
+    {s:7*60+30,e:8*60,n:"07:30"},
+    {s:8*60,e:9*60,n:"08:00"},
+    {s:9*60,e:10*60,n:"09:00"},
+    {s:12*60+30,e:14*60,n:"12:30"},
+    {s:17*60,e:17*60+30,n:"17:00"},
+    {s:21*60,e:22*60+15,n:"21:00"}
+  ];
+  function hhmm(t){return String(Math.floor(t/60)).padStart(2,"0")+":"+String(t%60).padStart(2,"0");}
+  function tick(){
+    var d=new Date(), wd=d.getDay(), m=d.getHours()*60+d.getMinutes();
+    var row=document.querySelector('#week tr[data-d="'+wd+'"]');
+    document.querySelectorAll("#week tr").forEach(function(r){r.classList.remove("today");});
+    if(row) row.classList.add("today");
+    var now=document.getElementById("now"), p=plan[wd], msg;
+    if(wd===0){msg="Sunday: <strong>rest day</strong>.";}
+    else{
+      var cur=-1,next=-1;
+      for(var i=0;i<6;i++){
+        if(m>=slots[i].s&&m<slots[i].e&&p[i]) cur=i;
+        if(next<0&&m<slots[i].s&&p[i]) next=i;
+      }
+      if(cur>=0) msg="Now: <strong>"+p[cur]+"</strong>, until "+hhmm(slots[cur].e)+".";
+      else if(next>=0) msg="Next: <strong>"+p[next]+"</strong> at "+slots[next].n+".";
+      else msg="Done for today. Tomorrow starts at 07:30.";
+    }
+    now.innerHTML=msg;
+    var mk=document.getElementById("marker"), lo=7*60, hi=23*60;
+    if(m>=lo&&m<=hi){mk.style.left=((m-lo)/(hi-lo)*100)+"%";mk.style.display="block";}else mk.style.display="none";
+  }
+  tick(); setInterval(tick,60000);
+})();
+</script>
+</body>
+</html>
