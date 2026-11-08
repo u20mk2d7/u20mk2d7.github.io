@@ -1,26 +1,21 @@
+
 baseURL = 'https://u20mk2d7.github.io/'
-languageCode = 'en-us'
 locale = 'en-us'
 title = 'keep moving forward'
 
-# Taxonomies
 [taxonomies]
   tag = 'tags'
 
-# Markdown configuration
-[markup]
+[security]
+  allowContent = ['^text/html$']
 
-  [markup.goldmark]
+[markup.goldmark.renderer]
+  unsafe = true
 
-    # Allow HTML inside Markdown articles
-    [markup.goldmark.renderer]
-      unsafe = true
+[markup.goldmark.extensions.passthrough]
+  enable = true
 
-    # Mathematical formulas
-    [markup.goldmark.extensions.passthrough]
-      enable = true
-
-      [markup.goldmark.extensions.passthrough.delimiters]
-        block = [['\[', '\]'], ['$$', '$$']]
-        inline = [['\(', '\)'], ['$', '$']]
+  [markup.goldmark.extensions.passthrough.delimiters]
+    block = [['\[', '\]'], ['$$', '$$']]
+    inline = [['\(', '\)'], ['$', '$']]
 
