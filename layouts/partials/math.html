@@ -1,14 +1,43 @@
-<script>
-  MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true
-    },
-    options: {
-      ignoreHtmlClass: 'tex2jax_ignore',
-      processHtmlClass: 'tex2jax_process'
-    }
-  };
+<!-- KaTeX CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css"
+>
+
+<!-- KaTeX JavaScript -->
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js">
 </script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<!-- KaTeX auto-render -->
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js">
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  renderMathInElement(document.body, {
+
+    delimiters: [
+      {left: "$$", right: "$$", display: true},
+      {left: "\\[", right: "\\]", display: true},
+      {left: "\\(", right: "\\)", display: false},
+      {left: "$", right: "$", display: false}
+    ],
+
+    ignoredClasses: [
+      "tex2jax_ignore",
+      "ignore-math"
+    ],
+
+    throwOnError: false,
+    strict: "warn"
+
+  });
+
+});
+</script>
+

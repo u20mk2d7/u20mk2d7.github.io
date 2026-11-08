@@ -1,25 +1,38 @@
+
 {{ define "main" }}
-<article>
-  <h2>{{ .Title }}</h2>
-  
-  <p class="meta">
-    Created: {{ .Date.Format "2006-01-02" }}
-    {{ if and .Lastmod (ne .Lastmod .Date) }}
-      | Modified: {{ .Lastmod.Format "2006-01-02" }}
-    {{ end }}
-  </p>
-  
-  {{ if .Params.tags }}
-    <p class="tags">
-      Tags: 
-      {{ range .Params.tags }}
-        <a href="/tags/{{ . | urlize }}/">#{{ . }}</a>
+<article class="article">
+
+  <header class="article-header">
+    <h1>{{ .Title }}</h1>
+
+    <p class="meta">
+      Created: {{ .Date.Format "2006-01-02" }}
+
+      {{ if and .Lastmod (ne .Lastmod .Date) }}
+        | Modified: {{ .Lastmod.Format "2006-01-02" }}
       {{ end }}
     </p>
-  {{ end }}
+
+    {{ with .Params.tags }}
+      <p class="tags">
+        Tags:
+        {{ range . }}
+          <a href="/tags/{{ . | urlize }}/">#{{ . }}</a>
+        {{ end }}
+      </p>
+    {{ end }}
+  </header>
 
   <div class="content">
     {{ .Content }}
   </div>
+
+  <footer class="article-footer">
+    <p>
+      <a href="/posts/">← Back to Articles</a>
+    </p>
+  </footer>
+
 </article>
 {{ end }}
+

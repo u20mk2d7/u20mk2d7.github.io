@@ -3,14 +3,28 @@ languageCode = 'en-us'
 locale = 'en-us'
 title = 'keep moving forward'
 
+# Taxonomies
 [taxonomies]
   tag = 'tags'
 
+# Allow trusted HTML content
+[security]
+  allowContent = ['text/html']
+
+# Markdown configuration
 [markup]
+
   [markup.goldmark]
-    [markup.goldmark.extensions]
-      [markup.goldmark.extensions.passthrough]
-        enable = true
-        [markup.goldmark.extensions.passthrough.delimiters]
-          block = [['\[', '\]'], ['$$', '$$']]
-          inline = [['\(', '\)'], ['$', '$']]
+
+    # Allow HTML inside Markdown articles
+    [markup.goldmark.renderer]
+      unsafe = true
+
+    # Mathematical formulas
+    [markup.goldmark.extensions.passthrough]
+      enable = true
+
+      [markup.goldmark.extensions.passthrough.delimiters]
+        block = [['\[', '\]'], ['$$', '$$']]
+        inline = [['\(', '\)'], ['$', '$']]
+
