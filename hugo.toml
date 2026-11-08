@@ -7,8 +7,8 @@ title = 'keep moving forward'
   tag = 'tags'
 
 [security]
-  allowContent = ['^text/html$']
-
+  allowContent = ['^text/html$', '^text/markdown$']
+  
 [markup.goldmark.renderer]
   unsafe = true
 
