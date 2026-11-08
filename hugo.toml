@@ -7,10 +7,6 @@ title = 'keep moving forward'
 [taxonomies]
   tag = 'tags'
 
-# Allow trusted HTML content
-[security]
-  allowContent = ['text/html']
-
 # Markdown configuration
 [markup]
 
