@@ -1,246 +1,346 @@
 ---
 title: "Study plan: Fast-Track Quant Math Roadmap"
-date: 2026-11-18
-lastmod: 2026-11-18
+date: 2026-11-24
+lastmod: 2026-11-24
 draft: false
 tags: ["quantitative", "mathematics"]
 math: true
-slug: "13"
+slug: "14"
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fast-Track Quant Math Roadmap</title>
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --border: #e5e7eb;
-      --accent: #2563eb;
-      --card-bg: #f9fafb;
-      --tier1: #059669;
-      --tier2: #d97706;
-      --tier3: #dc2626;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Master Quant Plan: blustone &amp; Systematic Trading</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light dark;
+  --bg:#EDF1F4; --surface:#FFFFFF; --ink:#18263A; --muted:#5B6879; --rule:#CCD5DE;
+  --code-bg:#E2E8EE; --seg-ink:#FFFFFF;
+  --deep:#0E6B66; --math:#4A4EA3; --eng:#2F7D57; --eve:#A86B12; --sys:#9E3B33; --rest:#8A94A3;
+  --deep-soft:#D7ECEA; --math-soft:#E1E2F4; --eng-soft:#D9EEE2; --eve-soft:#F3E7D2; --sys-soft:#F6DFDD;
+  box-sizing:border-box;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]):not(.light){
+    --bg:#111720; --surface:#1A222E; --ink:#EDF2F7; --muted:#A0AEC0; --rule:#2D3748;
+    --code-bg:#252F3F; --seg-ink:#0F172A;
+    --deep:#4FD1C5; --math:#A3BFFA; --eng:#68D391; --eve:#F6AD55; --sys:#FC8181; --rest:#718096;
+    --deep-soft:#163837; --math-soft:#232946; --eng-soft:#163626; --eve-soft:#382A18; --sys-soft:#3B1E1E;
+  }
+}
+:root[data-theme="dark"], :root.dark, body.dark{
+  --bg:#111720; --surface:#1A222E; --ink:#EDF2F7; --muted:#A0AEC0; --rule:#2D3748;
+  --code-bg:#252F3F; --seg-ink:#0F172A;
+  --deep:#4FD1C5; --math:#A3BFFA; --eng:#68D391; --eve:#F6AD55; --sys:#FC8181; --rest:#718096;
+  --deep-soft:#163837; --math-soft:#232946; --eng-soft:#163626; --eve-soft:#382A18; --sys-soft:#3B1E1E;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;background:var(--bg) !important;color:var(--ink) !important;
+  font:400 16px/1.55 "Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-variant-numeric:tabular-nums;width:100%;min-height:100%;}
+main{max-width:840px;margin:0 auto;padding:36px 20px 72px;color:var(--ink)}
+h1,h2,h3,strong,th,td,li{color:var(--ink)}
+h1{font:600 clamp(26px,5vw,38px)/1.15 "Newsreader",Georgia,serif;margin:0 0 8px}
+h2{font:600 23px/1.25 "Newsreader",Georgia,serif;margin:48px 0 12px}
+h3{font-size:16.5px;margin:24px 0 8px;font-weight:600}
+p{margin:0 0 12px;max-width:74ch;color:var(--ink)}
+code{background:var(--code-bg);color:var(--ink);padding:1px 5px;border-radius:4px;font-size:0.9em}
+.lede{color:var(--muted);font-size:16.5px}
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #111827;
-        --text: #f3f4f6;
-        --muted: #9ca3af;
-        --border: #374151;
-        --accent: #60a5fa;
-        --card-bg: #1f2937;
-        --tier1: #34d399;
-        --tier2: #fbbf24;
-        --tier3: #f87171;
-      }
-    }
+/* Zero-Reload Active Focus Box */
+.resume-box{margin:24px 0;background:var(--surface);border:2px solid var(--deep);border-radius:10px;padding:16px 18px}
+.resume-box h2{margin:0 0 10px;font-size:18px;font-family:"Instrument Sans",sans-serif;display:flex;justify-content:space-between;align-items:center}
+.resume-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.resume-card{background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:10px 12px}
+.resume-card small{display:block;font-weight:700;text-transform:uppercase;font-size:11px;letter-spacing:.04em;color:var(--muted);margin-bottom:4px}
+.resume-card p{margin:0;font-size:14px;font-weight:500}
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 2rem 1.25rem;
-    }
+/* Money Pipeline Banner */
+.pipeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:16px 0 28px}
+.pipe-step{background:var(--surface);border:1px solid var(--rule);border-top:3px solid var(--deep);border-radius:8px;padding:10px 12px}
+.pipe-step strong{display:block;font-size:14px;margin-bottom:2px}
+.pipe-step span{font-size:13px;color:var(--muted);display:block;line-height:1.4}
 
-    h1 {
-      font-size: 2rem;
-      line-height: 1.25;
-      margin-bottom: 0.5rem;
-    }
+/* Day band */
+.band{margin:24px 0 8px;background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:18px}
+.now{font-size:15px;margin:0 0 14px;min-height:1.5em}
+.track{position:relative;height:40px;border-radius:6px;background:repeating-linear-gradient(90deg,transparent 0 calc(100%/16 - 1px),var(--rule) calc(100%/16 - 1px) calc(100%/16))}
+.seg{position:absolute;top:0;bottom:0;border-radius:5px;display:flex;align-items:center;padding:0 6px;font-size:12px;font-weight:600;color:var(--seg-ink);overflow:hidden;white-space:nowrap}
+.seg.deep{background:var(--deep)} .seg.math{background:var(--math)} .seg.eng{background:var(--eng)} .seg.eve{background:var(--eve)} .seg.sys{background:var(--sys)}
+.marker{position:absolute;top:-6px;bottom:-6px;width:2px;background:var(--ink);display:none}
+.hours{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:6px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12.5px;color:var(--muted);margin-top:10px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
 
-    .subtitle {
-      color: var(--muted);
-      font-size: 1.05rem;
-      margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--border);
-    }
+/* Week Table */
+.scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:740px;font-size:14px;background:var(--surface)}
+th,td{padding:10px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+tr:last-child td{border-bottom:0}
+thead th{font-weight:600;font-size:12.5px;color:var(--muted)}
+thead th span{display:block;color:var(--ink);font-size:13px}
+td.day{font-weight:600;width:52px}
+.c-deep{border-left:3px solid var(--deep)} .c-math{border-left:3px solid var(--math)} .c-eng{border-left:3px solid var(--eng)} .c-eve{border-left:3px solid var(--eve)} .c-sys{border-left:3px solid var(--sys)}
+tr.today td{background:var(--math-soft)}
+.restcell{color:var(--rest)}
 
-    h2 {
-      font-size: 1.45rem;
-      margin-top: 2.25rem;
-      margin-bottom: 1rem;
-      padding-bottom: 0.35rem;
-      border-bottom: 2px solid var(--border);
-    }
-
-    h3 {
-      font-size: 1.15rem;
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .tier-1 { color: var(--tier1); }
-    .tier-2 { color: var(--tier2); }
-    .tier-3 { color: var(--tier3); }
-
-    .card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      margin-bottom: 1rem;
-    }
-
-    .card-title {
-      font-weight: 700;
-      font-size: 1.05rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .meta {
-      font-size: 0.875rem;
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    ul, ol {
-      padding-left: 1.5rem;
-      margin-top: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
-    }
-
-    .callout {
-      border-left: 4px solid var(--accent);
-      background-color: var(--card-bg);
-      padding: 1rem 1.25rem;
-      border-radius: 0 8px 8px 0;
-      margin: 1.5rem 0;
-    }
-
-    .checklist {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .checklist li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .checklist input[type="checkbox"] {
-      margin-top: 0.35rem;
-      transform: scale(1.15);
-      cursor: pointer;
-    }
-  </style>
+/* Queues */
+.queue{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:6px 16px 10px;margin-bottom:16px}
+.queue h3{margin:12px 0 2px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.queue h3 small{font-weight:500;color:var(--muted);font-size:13px}
+.queue.deep{border-left:4px solid var(--deep)} .queue.math{border-left:4px solid var(--math)} .queue.eng{border-left:4px solid var(--eng)} .queue.eve{border-left:4px solid var(--eve)} .queue.sys{border-left:4px solid var(--sys)}
+ol.items{list-style:none;counter-reset:q;padding:0;margin:6px 0 0}
+ol.items li{counter-increment:q;display:grid;grid-template-columns:22px 26px 1fr;gap:6px;align-items:start;padding:7px 0;border-top:1px solid var(--rule)}
+ol.items li:first-child{border-top:0}
+ol.items li::before{content:counter(q);color:var(--muted);font-size:13px;padding-top:2px}
+ol.items input{width:18px;height:18px;margin:3px 0 0;accent-color:var(--deep)}
+ol.items li.done .t{text-decoration:line-through;color:var(--muted)}
+.meta{display:block;color:var(--muted);font-size:13.5px}
+.tag{display:inline-block;font-size:12px;padding:1px 7px;border-radius:999px;background:var(--eve-soft);margin-left:4px}
+.prog{font-size:13px;color:var(--muted)}
+ol.rules{padding-left:22px} ol.rules li{margin-bottom:8px;max-width:74ch}
+.foot{margin-top:48px;color:var(--muted);font-size:13.5px}
+button.reset{font:inherit;font-size:13.5px;background:var(--surface);border:1px solid var(--rule);color:var(--muted);border-radius:6px;padding:4px 10px;cursor:pointer}
+</style>
 </head>
 <body>
-  <article>
-    <header>
-      <h1>Fast-Track Quant Math Roadmap</h1>
-      <p class="subtitle">
-        A focused 4-month study plan to rebuild university-level math foundations and master the exact mathematical tools needed for quantitative finance.
-      </p>
-    </header>
+<main>
+<h1>Master Quant Plan: blustone &amp; Profitable Systematic Trading</h1>
+<p class="lede">Single source of truth. Work strictly top-to-bottom in each slot. Never jump ahead until the current checkbox is verified with code, benchmarks, or solved problems.</p>
 
-    <section>
-      <h2>1. Audit of Coursera Specializations (Keep vs. Pause/Drop)</h2>
-      <p>
-        Enrolling in six specializations at once (over 20 individual courses and ~500+ hours of material) scatters focus. To get into quantitative finance as fast as possible, cut what isn't immediately necessary and order the rest so each topic unlocks the next.
-      </p>
+<!-- ZERO-RELOAD RESUME ANCHOR -->
+<section class="resume-box" aria-label="Current Active Focus">
+  <h2><span>⚡ Resume Here (Auto-updates from your first unchecked items)</span></h2>
+  <div class="resume-grid" id="resume-grid">
+    <div class="resume-card"><small>08:00 Engine (blustone)</small><p id="next-deep">Loading…</p></div>
+    <div class="resume-card"><small>09:00 Math &amp; Quant Edge</small><p id="next-math">Loading…</p></div>
+    <div class="resume-card"><small>21:00 Systems &amp; Microstructure</small><p id="next-sys">Loading…</p></div>
+  </div>
+</section>
 
-      <h3 class="tier-1">Tier 1: The Core Quant Math Engine (Must Do Now)</h3>
+<!-- HOW THIS MAKES MONEY -->
+<section class="pipeline" aria-label="The Money Pipeline">
+  <div class="pipe-step"><strong>1. Capture (Engine)</strong><span>Record clean SBE tick-by-tick order book data with zero packet drops.</span></div>
+  <div class="pipe-step"><strong>2. Discover (Math + Python)</strong><span>Find short-horizon signals (OBI, Micro-Price) with positive markout after fees.</span></div>
+  <div class="pipe-step"><strong>3. Simulate (Replay)</strong><span>Backtest with realistic queue position, latency jitter, and adverse selection.</span></div>
+  <div class="pipe-step"><strong>4. Execute (Live Risk)</strong><span>Deploy micro-capital maker quotes with inventory skew and hard kill-switches.</span></div>
+</section>
 
-      <div class="card">
-        <div class="card-title">1. Algebra: Elementary to Advanced (Johns Hopkins) <span class="meta">— ~25 hours total</span></div>
-        <p><strong>Verdict: Keep &amp; Finish First.</strong> A fast-track warm-up covering functions, polynomials, and equations so you don't get stuck on basic algebra later.</p>
-      </div>
+<section class="band" aria-label="Today's study slots">
+  <p class="now" id="now">Loading today's plan…</p>
+  <div class="track" id="track">
+    <div class="seg eng" style="left:3.125%;width:3.125%"></div>
+    <div class="seg deep" style="left:6.25%;width:6.25%">blustone</div>
+    <div class="seg math" style="left:12.5%;width:6.25%">Math</div>
+    <div class="seg eng" style="left:34.375%;width:9.375%">English</div>
+    <div class="seg eng" style="left:62.5%;width:3.125%"></div>
+    <div class="seg sys" style="left:87.5%;width:7.8125%">Systems</div>
+    <div class="marker" id="marker"></div>
+  </div>
+  <div class="hours" aria-hidden="true"><span>07:00</span><span>11:00</span><span>15:00</span><span>19:00</span><span>23:00</span></div>
+</section>
 
-      <div class="card">
-        <div class="card-title">2. Mathematics for Machine Learning (Imperial College) <span class="meta">— ~58 hours total</span></div>
-        <p><strong>Verdict: Keep (Highest ROI for speed).</strong> Compresses the exact Linear Algebra (vectors, matrices, eigenvalues) and Multivariate Calculus (gradients, optimization) used in quant models and portfolio optimization. Course 3 covers PCA (Principal Component Analysis), used constantly to model yield curves and risk factors.</p>
-      </div>
+<h2>Weekly Execution Schedule</h2>
+<div class="scroll">
+<table>
+  <thead><tr>
+    <th>Day</th>
+    <th class="c-eng"><span>07:30–08:00</span>Commute In</th>
+    <th class="c-deep"><span>08:00–09:00</span>Engine</th>
+    <th class="c-math"><span>09:00–10:00</span>Math / Quant</th>
+    <th class="c-eng"><span>12:30–14:00</span>Lunch</th>
+    <th class="c-eng"><span>17:00–17:30</span>Commute Out</th>
+    <th class="c-sys"><span>21:00–22:15</span>Evening Deep Work</th>
+  </tr></thead>
+  <tbody id="week">
+    <tr data-d="1"><td class="day">Mon</td><td class="c-eng">English / CppCon audio</td><td class="c-deep">blustone step</td><td class="c-math">Fast-Track Math</td><td class="c-eng">Eat, 20m nap, shadowing</td><td class="c-eng">Anki (10 words)</td><td class="c-sys">Linux kernel &amp; low-latency net</td></tr>
+    <tr data-d="2"><td class="day">Tue</td><td class="c-eng">English / CppCon audio</td><td class="c-deep">blustone step</td><td class="c-math">Fast-Track Math</td><td class="c-eng">Eat, 20m nap, shadowing</td><td class="c-eng">Anki (10 words)</td><td class="c-sys">Modern C++20/26 &amp; lock-free</td></tr>
+    <tr data-d="3"><td class="day">Wed</td><td class="c-eng">English / CppCon audio</td><td class="c-deep">blustone step</td><td class="c-math">Fast-Track Math</td><td class="c-eng">Eat, 20m nap, shadowing</td><td class="c-eng">Anki (10 words)</td><td class="c-sys">Market microstructure &amp; edge</td></tr>
+    <tr data-d="4"><td class="day">Thu</td><td class="c-eng">English / CppCon audio</td><td class="c-deep">blustone step</td><td class="c-math">Fast-Track Math</td><td class="c-eng">Eat, 20m nap, shadowing</td><td class="c-eng">Anki (10 words)</td><td class="c-sys">C++ profiling, SIMD &amp; perf</td></tr>
+    <tr data-d="5"><td class="day">Fri</td><td class="c-eng">English / CppCon audio</td><td class="c-deep">blustone step</td><td class="c-math">Math quiz + Python</td><td class="c-eng">Eat, 20m nap, shadowing</td><td class="c-eng">Anki (10 words)</td><td class="c-eve">NEU Finance &amp; Algos practice</td></tr>
+    <tr data-d="6"><td class="day">Sat</td><td class="restcell">—</td><td class="c-deep">Benchmarks / Catch-up</td><td class="c-math">Harris / Cartea reading</td><td class="c-eng">English writing &amp; speaking</td><td class="restcell">—</td><td class="c-eve">Weekly review (30 min)</td></tr>
+    <tr data-d="0"><td class="day">Sun</td><td class="restcell" colspan="6">Rest. No study, no code, full recovery.</td></tr>
+  </tbody>
+</table>
+</div>
 
-      <div class="card">
-        <div class="card-title">3. Foundations of Probability and Statistics (CU Boulder) <span class="meta">— ~105 hours total</span></div>
-        <p><strong>Verdict: Keep (The Heart of Quant).</strong> Quant finance is applied probability and stochastic processes. Course 2 (<em>Discrete-Time Markov Chains and Monte Carlo Methods</em>) and Course 3 (<em>Statistical Estimation / MLE</em>) are directly used for option pricing, risk simulation, and alpha signal testing.</p>
-      </div>
+<h2>Sequential Step-by-Step Tracks</h2>
 
-      <h3 class="tier-2">Tier 2: Secondary / Selective (Do Only Specific Parts Later)</h3>
+<div class="queue deep">
+  <h3>Track 1 — 08:00 Weekdays: blustone Trading Engine <small class="prog" data-prog="deep"></small></h3>
+  <ol class="items" data-q="deep">
+    <li><input type="checkbox"><span class="t">Zero-allocation core primitives: <code>fixed_point</code>, <code>Micros</code>, <code>OrderType::LimitMaker</code><span class="meta">Clean under ASan + UBSan; zero heap allocations on hot path.</span></span></li>
+    <li><input type="checkbox"><span class="t">Lock-free SPSC ring buffer + CPU core pinning<span class="meta">Pin ingress &amp; strategy threads to isolated cores (<code>pthread_setaffinity_np</code>).</span></span></li>
+    <li><input type="checkbox"><span class="t">Cache-friendly L2 Order Book &amp; Binance SBE binary decoder<span class="meta">Flat arrays / open-addressing hash maps; zero-copy SBE parsing.</span></span></li>
+    <li><input type="checkbox"><span class="t">Network RTT benchmark &amp; Tokyo VPS co-location check<span class="meta">Measure wire-to-wire p50/p99 to Binance; deploy Tokyo VPS if p50 &gt; 20 ms.</span></span></li>
+    <li><input type="checkbox"><span class="t">Live market data capture &amp; binary packet logger (Phase 3)<span class="meta">Start recording continuous SBE ticks early so historical data accumulates.</span></span></li>
+    <li><input type="checkbox"><span class="t">Deterministic replay engine &amp; markout simulator (Phase 4)<span class="meta">Simulate queue position, latency jitter, and maker/taker fees on captured data.</span></span></li>
+    <li><input type="checkbox"><span class="t">Live micro-capital execution &amp; hard kill-switch<span class="meta">Max drawdown, stale-book cutoff, and rate-limit circuit breakers before live funds.</span></span></li>
+  </ol>
+</div>
 
-      <div class="card">
-        <div class="card-title">4. Data Structures and Algorithms (UCSD) <span class="meta">— ~182 hours total</span></div>
-        <p><strong>Verdict: Cherry-pick Courses 1 &amp; 2 only.</strong> Skip Graph Theory, String Algorithms, and Genome Assembly (Courses 3–6). Only take <strong>Course 1 (Algorithmic Toolbox)</strong> and <strong>Course 2 (Data Structures)</strong> to write fast backtests and low-latency execution code.</p>
-      </div>
+<div class="queue math">
+  <h3>Track 2 — 09:00 Weekdays: Fast-Track Quant Math &amp; Validation <small class="prog" data-prog="math"></small></h3>
+  <ol class="items" data-q="math">
+    <li><input type="checkbox"><span class="t">Algebra: Elementary to Advanced (Johns Hopkins, Courses 1–3)<span class="tag">~25h</span><span class="meta">Speed-run at 1.5x–2x; focus on functions, logs, and exponentials.</span></span></li>
+    <li><input type="checkbox"><span class="t">Math for ML: Course 1 — Linear Algebra (Imperial College)<span class="meta">Matrices, eigenvalues, covariance matrices, and OLS regression.</span></span></li>
+    <li><input type="checkbox"><span class="t">Math for ML: Course 2 — Multivariate Calculus (Imperial College)<span class="meta">Partial derivatives, gradients, chain rule, and optimization.</span></span></li>
+    <li><input type="checkbox"><span class="t">Math for ML: Course 3 — PCA (Imperial College)<span class="meta">Dimensionality reduction and risk factor decomposition.</span></span></li>
+    <li><input type="checkbox"><span class="t">Probability Foundations (CU Boulder Course 1)<span class="meta">Random variables, expectation, variance, conditional probability, CLT.</span></span></li>
+    <li><input type="checkbox"><span class="t">Discrete-Time Markov Chains &amp; Monte Carlo (CU Boulder Course 2)<span class="meta">Order book queue transitions and Monte Carlo fill simulations.</span></span></li>
+    <li><input type="checkbox"><span class="t">Statistical Estimation (CU Boulder Course 3) + <em>OpenIntro Statistics</em><span class="meta">MLE, confidence intervals, and hypothesis testing (t-tests/p-values) to prove markout edge.</span></span></li>
+    <li><input type="checkbox"><span class="t">Python research pipeline (<code>polars</code>, <code>pandas</code>, <code>numpy</code>, <code>matplotlib</code>)<span class="meta">Load C++-captured logs and plot 10ms–5s markout decay curves.</span></span></li>
+  </ol>
+</div>
 
-      <div class="card">
-        <div class="card-title">5. Introduction to Discrete Mathematics for Computer Science (UCSD) <span class="meta">— ~116 hours total</span></div>
-        <p><strong>Verdict: Cherry-pick Course 2 only (or Drop).</strong> Most of this is pure CS theory. The only relevant part is <strong>Course 2 (Combinatorics and Probability)</strong>, which is already covered more practically for finance in the CU Boulder Probability specialization.</p>
-      </div>
+<div class="queue sys">
+  <h3>Track 3 — Wed 21:00 &amp; Sat 09:00: Microstructure &amp; Profitable Edge <small class="prog" data-prog="quant"></small></h3>
+  <ol class="items" data-q="quant">
+    <li><input type="checkbox"><span class="t">Order book mechanics &amp; fee math (<em>Trading and Exchanges</em>, Harris)<span class="meta">Matching priority, maker vs. taker fees, and why passive fills suffer adverse selection.</span></span></li>
+    <li><input type="checkbox"><span class="t">Alpha signals: Order Book Imbalance (OBI), Micro-Price &amp; OFI<span class="meta">Compute short-horizon fair value skew on captured Binance SBE ticks.</span></span></li>
+    <li><input type="checkbox"><span class="t">Adverse selection &amp; toxic flow filtering<span class="meta">Measure post-fill markout; pull quotes immediately when cross-exchange lead price moves.</span></span></li>
+    <li><input type="checkbox"><span class="t">Market-making inventory control (Avellaneda-Stoikov, Cartea et al.)<span class="meta">Skew bid/ask spreads dynamically based on current inventory risk.</span></span></li>
+    <li><input type="checkbox"><span class="t">Backtest overfitting check (Bailey et al.)<span class="meta">Verify out-of-sample stability and net profitability after worst-case fees/slippage.</span></span></li>
+  </ol>
+</div>
 
-      <h3 class="tier-3">Tier 3: Drop / Postpone Indefinitely</h3>
+<div class="queue sys">
+  <h3>Track 4 — Tue &amp; Thu 21:00: Modern C++20/26 &amp; Hardware Sympathy <small class="prog" data-prog="cpp"></small></h3>
+  <ol class="items" data-q="cpp">
+    <li><input type="checkbox"><span class="t">C++17/20/26 Concurrency &amp; Memory Model (<em>C++ Concurrency in Action</em>)<span class="meta">Atomics, <code>acquire/release</code> ordering, and lock-free guarantees.</span></span></li>
+    <li><input type="checkbox"><span class="t">Zero-overhead abstractions (Templates, Concepts, CRTP, <code>std::span</code>)<span class="meta">Eliminate virtual dispatch and runtime branches on the critical path.</span></span></li>
+    <li><input type="checkbox"><span class="t">Cache lines, false sharing &amp; custom arena/pool allocators<span class="meta"><code>alignas(64)</code>, <code>std::pmr</code>, <code>jemalloc</code>, and <code>pahole</code> struct inspection.</span></span></li>
+    <li><input type="checkbox"><span class="t">CPU profiling &amp; assembly inspection (<code>perf</code>, flame graphs, <code>cachegrind</code>)<span class="meta">Measure every stage of <code>blustone</code> in nanoseconds.</span></span></li>
+    <li><input type="checkbox"><span class="t">SIMD vectorization (AVX2 intrinsics)<span class="meta">Accelerate order book level updates and rolling signal math.</span></span></li>
+  </ol>
+</div>
 
-      <div class="card">
-        <div class="card-title">6. High-Performance and Parallel Computing (CU Boulder) <span class="meta">— ~30 hours total</span></div>
-        <p><strong>Verdict: Pause/Drop for now.</strong> Focuses on academic supercomputing tools like MPI and Slurm clusters, which distract from learning how to formulate and calculate quant models.</p>
-      </div>
-    </section>
+<div class="queue sys">
+  <h3>Track 5 — Mon 21:00: Linux Kernel &amp; Low-Latency Networking <small class="prog" data-prog="linux"></small></h3>
+  <ol class="items" data-q="linux">
+    <li><input type="checkbox"><span class="t">OS noise reduction (<code>isolcpus</code>, <code>nohz_full</code>, <code>SCHED_FIFO</code>)<span class="meta">Isolate trading cores from OS interrupts and frequency scaling.</span></span></li>
+    <li><input type="checkbox"><span class="t">Virtual memory &amp; HugePages (<code>mlockall</code>)<span class="meta">Eliminate minor page faults during live market spikes.</span></span></li>
+    <li><input type="checkbox"><span class="t">Low-latency sockets &amp; <code>epoll</code> busy-polling (<code>TCP_NODELAY</code>, <code>SO_BUSY_POLL</code>)<span class="meta">Minimize kernel-to-userspace wakeup latency.</span></span></li>
+    <li><input type="checkbox"><span class="t">Asynchronous I/O with <code>io_uring</code> &amp; kernel-bypass concepts (<code>AF_XDP</code>/DPDK)<span class="meta">Zero-syscall packet capture and HFT interview readiness.</span></span></li>
+  </ol>
+</div>
 
-    <section>
-      <h2>2. The Fast-Track Quant Learning Roadmap (4-Month Plan)</h2>
-      <p>Do not take courses in parallel. Complete them <strong>strictly one at a time</strong> in this exact order:</p>
+<div class="queue eve">
+  <h3>Track 6 — Fri 21:00 &amp; Commutes: NEU, Algos &amp; Passive English <small class="prog" data-prog="support"></small></h3>
+  <ol class="items" data-q="support">
+    <li><input type="checkbox"><span class="t">NEU Finance &amp; Banking weekly assignments (Fri 21:00)<span class="meta">Keep degree on track; apply econometrics &amp; derivatives coursework to trading.</span></span></li>
+    <li><input type="checkbox"><span class="t">UCSD Algorithmic Toolbox &amp; Data Structures (Courses 1–2 only)<span class="meta">Implement core algorithms in C++26; skip Courses 3–6.</span></span></li>
+    <li><input type="checkbox"><span class="t">Daily Passive English: Commutes (07:30, 17:00) &amp; Lunch (13:10)<span class="meta">Morning audio/CppCon, lunch shadowing, evening Anki (10 cards). Cap at IELTS 6.5–7.0.</span></span></li>
+  </ol>
+</div>
 
-      <h3>Month 1: Reactivate Algebra &amp; Start Linear Algebra</h3>
-      <ul>
-        <li><strong>Weeks 1–2 — Algebra: Elementary to Advanced (Courses 1–3):</strong> Speed through familiar material at 1.5x–2x speed and focus on problem sets where you feel rusty (logarithms, exponentials, functions).</li>
-        <li><strong>Weeks 3–4 — Mathematics for Machine Learning (Course 1: Linear Algebra):</strong> Focus on matrix multiplication, inverses, and eigenvalues (used in covariance matrices and portfolio variance).</li>
-      </ul>
+<h2>Anti-Forgetfulness Rules</h2>
+<ol class="rules">
+  <li><strong>Look only at the "Resume Here" box:</strong> Never scan the whole page when starting a session. Do the single item shown for your current time slot.</li>
+  <li><strong>Leave a breadcrumb in <code>TODO.md</code>:</strong> Spend the last 2 minutes of every 08:00 session writing the exact file, function, and next line of code to touch tomorrow.</li>
+  <li><strong>One math path only:</strong> Follow Imperial Math for ML → CU Boulder Probability/Estimation strictly in order. Do not open dropped courses.</li>
+  <li><strong>Profitability gate:</strong> Do not scale live trading capital until replay + micro-live markout is statistically positive ($p &lt; 0.05$) net of fees.</li>
+</ol>
 
-      <h3>Month 2: Multivariate Calculus &amp; PCA</h3>
-      <ul>
-        <li><strong>Weeks 5–6 — Mathematics for Machine Learning (Course 2: Multivariate Calculus):</strong> Focus on partial derivatives, chain rule, and gradient descent (used in calibrating pricing models and minimizing loss functions).</li>
-        <li><strong>Weeks 7–8 — Mathematics for Machine Learning (Course 3: PCA):</strong> Focus on dimensionality reduction and covariance decomposition.</li>
-      </ul>
+<p class="foot">Progress saved locally in this browser. <button class="reset" id="reset" type="button">Clear all ticks</button></p>
+</main>
 
-      <h3>Month 3: Probability, Markov Chains &amp; Monte Carlo</h3>
-      <ul>
-        <li><strong>Weeks 9–10 — Foundations of Probability and Statistics (Course 1: Probability Foundations):</strong> Focus on random variables, expectation, variance, distributions, and the Central Limit Theorem (building blocks of asset return modeling).</li>
-        <li><strong>Weeks 11–12 — Foundations of Probability and Statistics (Course 2: Discrete-Time Markov Chains &amp; Monte Carlo):</strong> Focus on simulating random price paths (Monte Carlo) and state-transition probabilities.</li>
-      </ul>
+<script>
+(function(){
+  var KEY="quant-master-v5";
+  var state={}, progs=[];
+  try{state=JSON.parse(localStorage.getItem(KEY)||"{}")||{};}catch(e){state={};}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
 
-      <h3>Month 4: Statistical Estimation &amp; Quant Coding</h3>
-      <ul>
-        <li><strong>Weeks 13–14 — Foundations of Probability and Statistics (Course 3: Statistical Estimation):</strong> Focus on Maximum Likelihood Estimation (MLE) and confidence intervals (fitting models to market data and testing strategy significance).</li>
-        <li><strong>Weeks 15–16 — Data Structures and Algorithms (Course 1: Algorithmic Toolbox &amp; Course 2: Data Structures):</strong> Sharpen algorithmic thinking and execution speed.</li>
-      </ul>
-    </section>
+  function updateResume(){
+    function firstUnchecked(selectors){
+      for(var s=0;s<selectors.length;s++){
+        var items=document.querySelectorAll('ol.items[data-q="'+selectors[s]+'"] li');
+        for(var i=0;i<items.length;i++){
+          if(!items[i].classList.contains("done")){
+            return items[i].querySelector(".t").childNodes[0].textContent.trim();
+          }
+        }
+      }
+      return "All items completed! Review & scale.";
+    }
+    document.getElementById("next-deep").textContent=firstUnchecked(["deep"]);
+    document.getElementById("next-math").textContent=firstUnchecked(["math"]);
+    document.getElementById("next-sys").textContent=firstUnchecked(["quant","cpp","linux"]);
+  }
 
-    <section>
-      <h2>3. Next Step After Month 4</h2>
-      <div class="callout">
-        <p>
-          <strong>Missing Piece:</strong> None of the Coursera specializations above cover <em>Single-Variable Integral Calculus</em> or <em>Stochastic Calculus (Brownian Motion / Itô's Lemma)</em>, which are required for derivatives pricing (such as Black-Scholes).
-        </p>
-        <p style="margin-bottom: 0;">
-          Once you finish Month 4, read a practical quant textbook like <em>Options, Futures, and Other Derivatives</em> by John C. Hull or <em>Paul Wilmott Introduces Quantitative Finance</em> to connect this math directly to financial formulas.
-        </p>
-      </div>
-    </section>
+  document.querySelectorAll("ol.items").forEach(function(ol){
+    var q=ol.getAttribute("data-q");
+    var items=ol.querySelectorAll("li");
+    function prog(){
+      var n=0; items.forEach(function(li){if(li.classList.contains("done"))n++;});
+      var el=document.querySelector('[data-prog="'+q+'"]');
+      if(el) el.textContent=n+" of "+items.length+" done";
+      updateResume();
+    }
+    items.forEach(function(li,i){
+      var id=q+"-"+i, cb=li.querySelector("input");
+      if(state[id]){cb.checked=true;li.classList.add("done");}
+      cb.addEventListener("change",function(){
+        state[id]=cb.checked; li.classList.toggle("done",cb.checked); save(); prog();
+      });
+    });
+    prog(); progs.push(prog);
+  });
 
-    <section>
-      <h2>4. Daily Action Checklist</h2>
-      <ul class="checklist">
-        <li><input type="checkbox" /> <span>Unenroll or hide <em>High-Performance Computing</em> and <em>Discrete Mathematics</em> from the active dashboard to eliminate distractions.</span></li>
-        <li><input type="checkbox" /> <span>Complete <strong>Algebra: Elementary to Advanced (Course 1)</strong> within the first 7 days.</span></li>
-        <li><input type="checkbox" /> <span>Maintain a dedicated markdown/math log translating every concept learned into how it applies to price data, returns, or risk.</span></li>
-      </ul>
-    </section>
-  </article>
+  document.getElementById("reset").addEventListener("click",function(){
+    state={}; try{localStorage.removeItem(KEY);}catch(e){}
+    document.querySelectorAll("ol.items li").forEach(function(li){li.classList.remove("done");li.querySelector("input").checked=false;});
+    progs.forEach(function(f){f();});
+  });
+
+  var plan={
+    1:["English / CppCon audio","blustone: hot-path step","Fast-Track Math","Lunch + 20m nap + shadowing","Anki vocab (10 words)","Linux kernel & low-latency net"],
+    2:["English / CppCon audio","blustone: hot-path step","Fast-Track Math","Lunch + 20m nap + shadowing","Anki vocab (10 words)","Modern C++20/26 & lock-free"],
+    3:["English / CppCon audio","blustone: hot-path step","Fast-Track Math","Lunch + 20m nap + shadowing","Anki vocab (10 words)","Market microstructure & edge"],
+    4:["English / CppCon audio","blustone: hot-path step","Fast-Track Math","Lunch + 20m nap + shadowing","Anki vocab (10 words)","C++ profiling, SIMD & perf"],
+    5:["English / CppCon audio","blustone: hot-path step","Math quiz + Python stats","Lunch + 20m nap + shadowing","Anki vocab (10 words)","NEU Finance & Algos practice"],
+    6:[null,"Benchmarks / Catch-up","Harris / Cartea reading","English writing & speaking",null,"Weekly review (30 min)"],
+    0:[null,null,null,null,null,null]
+  };
+  var slots=[
+    {s:7*60+30,e:8*60,n:"07:30"},
+    {s:8*60,e:9*60,n:"08:00"},
+    {s:9*60,e:10*60,n:"09:00"},
+    {s:12*60+30,e:14*60,n:"12:30"},
+    {s:17*60,e:17*60+30,n:"17:00"},
+    {s:21*60,e:22*60+15,n:"21:00"}
+  ];
+  function hhmm(t){return String(Math.floor(t/60)).padStart(2,"0")+":"+String(t%60).padStart(2,"0");}
+  function tick(){
+    var d=new Date(), wd=d.getDay(), m=d.getHours()*60+d.getMinutes();
+    var row=document.querySelector('#week tr[data-d="'+wd+'"]');
+    document.querySelectorAll("#week tr").forEach(function(r){r.classList.remove("today");});
+    if(row) row.classList.add("today");
+    var now=document.getElementById("now"), p=plan[wd], msg;
+    if(wd===0){msg="Sunday: <strong>rest day</strong>.";}
+    else{
+      var cur=-1,next=-1;
+      for(var i=0;i<6;i++){
+        if(m>=slots[i].s&&m<slots[i].e&&p[i]) cur=i;
+        if(next<0&&m<slots[i].s&&p[i]) next=i;
+      }
+      if(cur>=0) msg="Now: <strong>"+p[cur]+"</strong>, until "+hhmm(slots[cur].e)+".";
+      else if(next>=0) msg="Next: <strong>"+p[next]+"</strong> at "+slots[next].n+".";
+      else msg="Done for today. Tomorrow starts at 07:30.";
+    }
+    now.innerHTML=msg;
+    var mk=document.getElementById("marker"), lo=7*60, hi=23*60;
+    if(m>=lo&&m<=hi){mk.style.left=((m-lo)/(hi-lo)*100)+"%";mk.style.display="block";}else mk.style.display="none";
+  }
+  tick(); setInterval(tick,60000);
+})();
+</script>
 </body>
 </html>
