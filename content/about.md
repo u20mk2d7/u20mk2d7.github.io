@@ -1,7 +1,7 @@
 ---
 title: "About"
 date: 2026-08-04
-lastmod: 2026-10-15
+lastmod: 2026-11-27
 draft: false
 tags: ["about"]
 slug: "about"
@@ -17,8 +17,6 @@ slug: "about"
 - **Keep Moving Forward.**
 
 # Profiles
-
-- [LinkedIn](https://www.linkedin.com/in/u20mk2d7/)
 - [LeetCode](https://leetcode.com/u/u20mk2d7/)
 - [Codeforces](https://codeforces.com/profile/u20mk2d7)
 - [VNOI Online Judge](https://oj.vnoi.info/user/u20mk2d7)
