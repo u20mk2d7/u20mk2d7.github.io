@@ -1,0 +1,156 @@
+---
+title: "Study plan: Fast-Track Quant Math Roadmap"
+date: 2026-11-24
+lastmod: 2026-11-24
+draft: false
+tags: ["quantitative", "mathematics"]
+math: true
+slug: "14"
+---
+
+
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Master Quant Plan: Math, blustone &amp; Binance Spot</title>
+<style>
+:root{--bg:#fafaf9;--card:#fff;--tx:#1c1917;--mu:#78716c;--bd:#e7e5e4;--ac:#2563eb;--ok:#16a34a}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141413;--card:#1e1e1c;--tx:#f5f5f4;--mu:#a8a29e;--bd:#33312e;--ac:#60a5fa;--ok:#4ade80}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,sans-serif}
+main{max-width:900px;margin:auto;padding:20px 16px 60px}
+h1{font-size:1.5rem;margin:.2em 0}h2{font-size:1.1rem;margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px 16px;margin:14px 0}
+.mu{color:var(--mu);font-size:.875rem}
+.bar{height:8px;background:var(--bd);border-radius:4px;overflow:hidden}.bar i{display:block;height:100%;background:var(--ok);width:0}
+.slot{display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--bd)}.slot:first-of-type{border-top:0}
+.slot b{min-width:130px}
+label{display:flex;gap:8px;padding:6px 0;cursor:pointer;align-items:flex-start}
+label.done span{text-decoration:line-through;color:var(--mu)}
+input{margin-top:5px}
+details{margin:10px 0}summary{cursor:pointer;font-weight:600}
+.tbl{overflow-x:auto}table{border-collapse:collapse;font-size:.85rem;min-width:640px}
+td,th{border:1px solid var(--bd);padding:5px 8px;text-align:left}
+button{background:none;border:1px solid var(--bd);color:var(--mu);border-radius:8px;padding:4px 10px;cursor:pointer}
+ol,ul{padding-left:20px}a{color:var(--ac)}
+</style></head><body><main>
+<h1>Master Quant Plan</h1>
+<p class="mu">Math · blustone engine · C++/Linux · Binance spot project. Merged from posts/14 (2026-11-24, newer, used as base) and posts/plan_learning (2026-11-08). Ticks are saved in this browser.</p>
+
+<div class="card"><h2>Overall progress</h2><div class="bar"><i id="pb"></i></div><div class="mu" id="pt"></div></div>
+
+<div class="card"><h2>Resume here — <span id="today"></span></h2><div id="resume"></div></div>
+
+<div class="card"><h2>Pipeline</h2><ol class="mu" style="margin:0">
+<li><b>Capture</b> clean SBE tick data, zero drops</li><li><b>Discover</b> OBI / Micro-Price signals with positive markout after fees</li>
+<li><b>Simulate</b> replay with queue position, latency, adverse selection</li><li><b>Execute</b> micro-capital with inventory skew and kill-switches</li></ol></div>
+
+<div class="card"><h2>Weekly schedule</h2><div class="tbl"><table>
+<tr><th>Day</th><th>07:30 Commute</th><th>08:00</th><th>09:00</th><th>12:30 Lunch</th><th>17:00 Commute</th><th>21:00</th></tr>
+<tr><td>Mon</td><td rowspan=5>English / CppCon audio</td><td>blustone step</td><td>Math</td><td rowspan=5>Eat, 20m nap, shadowing</td><td rowspan=5>Anki 10 words</td><td>Linux kernel &amp; net</td></tr>
+<tr><td>Tue</td><td>blustone step</td><td>Math</td><td>C++20/26 &amp; lock-free</td></tr>
+<tr><td>Wed</td><td>blustone step</td><td>Math</td><td>Microstructure &amp; edge</td></tr>
+<tr><td>Thu</td><td>blustone step</td><td>Math</td><td>C++ profiling, SIMD</td></tr>
+<tr><td>Fri</td><td>blustone step</td><td>Math quiz + Python</td><td>Algorithms &amp; discrete math</td></tr>
+<tr><td>Sat</td><td>—</td><td>Binance spot project / catch-up</td><td>Harris / Cartea reading</td><td>English writing &amp; speaking</td><td>—</td><td>Weekly review (30 min)</td></tr>
+<tr><td>Sun</td><td colspan=6>Rest. No study, no code.</td></tr></table></div></div>
+
+<div id="tracks"></div>
+
+<div class="card"><h2>Roadmap</h2><ul>
+<li><b>Now – Jan 2027:</b> core engine primitives, SPSC queue, SBE parser; C++ concurrency, Linux tuning, algebra.</li>
+<li><b>Feb – Apr 2027:</b> live Binance tick capture (Tokyo VPS if RTT p50 &gt; 20 ms), profiling, linear algebra, Harris.</li>
+<li><b>May – Aug 2027:</b> replay simulator, probability and estimation, OBI / Micro-Price / markout analysis.</li>
+<li><b>Sep – Dec 2027:</b> micro-capital market making with kill-switches and inventory skew; Cartea et al.; publish write-ups.</li></ul></div>
+
+<div class="card"><h2>Rules</h2><ol>
+<li>Look only at “Resume here”. Do the single item for your slot.</li>
+<li>Last 2 minutes of each 08:00 session: write the next file, function and line in <code>TODO.md</code>.</li>
+<li>One math path: Imperial Math for ML, then CU Boulder Probability / Estimation.</li>
+<li>NEU coursework is paused. Focus: English, Math, Investing, Building systems.</li>
+<li>Prime hours (08:00, 09:00, 21:00) never go to passive English.</li>
+<li>Measure, don’t guess: benchmark p50/p99 before the next engine item.</li>
+<li>Profitability gate: no scaling live capital until markout is positive (p &lt; 0.05) net of fees. Spot project: testnet first, tiny size, hard caps.</li></ol></div>
+
+<p><button id="reset">Clear all ticks</button></p>
+</main>
+<script>
+const T=[
+{id:'eng',n:'Track 1 — 08:00 blustone engine',s:[
+['Zero-allocation core primitives (fixed_point, Micros, LimitMaker)','Clean under ASan+UBSan; zero heap allocs on hot path.'],
+['Lock-free SPSC ring buffer + core pinning','pthread_setaffinity_np on isolated cores.'],
+['Cache-friendly L2 order book + Binance SBE decoder','Flat arrays / open addressing; zero-copy parsing.'],
+['Network RTT benchmark & Tokyo VPS check','Wire-to-wire p50/p99; VPS if p50 > 20 ms.'],
+['Live market data capture & binary packet logger','Record continuously so history accumulates.'],
+['Deterministic replay engine & markout simulator','Queue position, latency jitter, maker/taker fees.'],
+['Live micro-capital execution & hard kill-switch','Max drawdown, stale-book cutoff, rate-limit breakers.']]},
+{id:'math',n:'Track 2 — 09:00 Math core (one path, in order)',s:[
+['Algebra: Elementary to Advanced (JHU, 3 courses, ~25h)','Test out first; skip what you already know.','https://www.coursera.org/specializations/algebra-elementary-to-advanced'],
+['Math for ML: Linear Algebra (Imperial, 19h)','Matrices, eigenvalues, covariance, OLS.','https://www.coursera.org/learn/linear-algebra-machine-learning'],
+['Math for ML: Multivariate Calculus (Imperial, 18h)','Starts from intro calculus; gradients, optimization. Required before CU Boulder.','https://www.coursera.org/learn/multivariate-calculus-machine-learning'],
+['Math for ML: PCA (Imperial, 21h)','Needs Python + numpy. Risk factor decomposition.','https://www.coursera.org/learn/pca-machine-learning'],
+['Probability Foundations (CU Boulder, 43h)','Needs calculus through Calc II and some Python/R. Harvard Stat 110 problems are a free supplement.','https://www.coursera.org/learn/probability-theory-foundation-for-data-science'],
+['Discrete-Time Markov Chains and Monte Carlo (CU Boulder, 33h)','Order-queue transitions, fill simulation, MCMC.','https://www.coursera.org/learn/discrete-time-markov-chains-monte-carlo-methods'],
+['Statistical Estimation (CU Boulder, 29h) + OpenIntro Statistics','MLE, method of moments, confidence intervals.','https://www.coursera.org/learn/statistical-inference-for-estimation-in-data-science'],
+['Python research pipeline (polars, pandas, numpy, matplotlib)','Markout decay curves on captured logs.'],
+['MIT 18.650 Statistics for Applications (OCW, videos)','Regression, hypothesis tests, Bayesian. After CU Boulder.','https://ocw.mit.edu/courses/18-650-statistics-for-applications-fall-2016/'],
+['MIT 18.642 Math with Applications in Finance (OCW)','Stochastic processes, Ito, finance applications.','https://ocw.mit.edu/courses/18-642-topics-in-mathematics-with-applications-in-finance-fall-2024/'],
+['MIT 15.450 Analytics of Finance (OCW, graduate)','Monte Carlo, dynamic programming, econometrics. Port MATLAB code to Python. Do 15.401 Finance Theory I first.','https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/']]},
+{id:'micro',n:'Track 3 — Wed 21:00 & Sat 09:00 Microstructure & edge',s:[
+['Order book mechanics & fee math (Harris)','Matching priority, maker vs taker, adverse selection.'],
+['Alpha signals: OBI, Micro-Price, OFI','On captured Binance SBE ticks.'],
+['Adverse selection & toxic flow filtering','Post-fill markout; pull quotes on lead-price moves.'],
+['Inventory control (Avellaneda-Stoikov, Cartea et al.)','Skew bid/ask by inventory risk.'],
+['Backtest overfitting check (Bailey et al.)','Out-of-sample stability net of worst-case fees.']]},
+{id:'cpp',n:'Track 4 — Tue & Thu 21:00 Modern C++ & hardware',s:[
+['Concurrency & memory model (C++ Concurrency in Action)','Atomics, acquire/release.'],
+['Zero-overhead abstractions (templates, concepts, CRTP, span)','No virtual dispatch on the critical path.'],
+['Cache lines, false sharing, arena/pool allocators','alignas(64), std::pmr, jemalloc, pahole.'],
+['CPU profiling & assembly (perf, flame graphs, cachegrind)','Measure each stage in ns.'],
+['SIMD (AVX2 intrinsics)','Level updates, rolling signals.']]},
+{id:'os',n:'Track 5 — Mon 21:00 Linux kernel & low-latency net',s:[
+['OS noise reduction (isolcpus, nohz_full, SCHED_FIFO)','Frequency scaling off.'],
+['Virtual memory & HugePages (mlockall)','No minor page faults in spikes.'],
+['Low-latency sockets & epoll busy-polling','TCP_NODELAY, SO_BUSY_POLL.'],
+['io_uring & kernel-bypass concepts (AF_XDP / DPDK)','Zero-syscall capture; interview readiness.']]},
+{id:'misc',n:'Track 6 — Fri 21:00 Algorithms & discrete math (NEU removed)',s:[
+['UCSD Algorithmic Toolbox (41h)','Implement in C++. Prerequisite for the rest.','https://www.coursera.org/learn/algorithmic-toolbox'],
+['UCSD Data Structures (23h)','Dynamic arrays, heaps, hash tables, balanced trees.','https://www.coursera.org/learn/data-structures'],
+['Discrete Math: Combinatorics and Probability (UCSD, 23h)','Optional. Counting and probability intuition; overlaps with CU Boulder Probability.','https://www.coursera.org/learn/combinatorics'],
+['Discrete Math: Mathematical Thinking in CS (UCSD, 42h)','Optional. Only if proofs and induction feel weak.','https://www.coursera.org/learn/what-is-a-proof'],
+['UCSD Algorithms on Graphs (55h)','Optional. Shortest paths, spanning trees.','https://www.coursera.org/learn/algorithms-on-graphs'],
+['UCSD Advanced Algorithms and Complexity (27h)','Later. Includes linear programming with portfolio optimization.','https://www.coursera.org/learn/advanced-algorithms-and-complexity'],
+['Skip: Algorithms on Strings, Genome Assembly, Number Theory and Cryptography, Delivery Problem','Low value for trading. Remove from plan.']]},
+{id:'eng',n:'Track 8 — Commutes & lunch: Passive English',s:[
+['Daily passive English: commutes and lunch','Audio, shadowing (try Stat 110 lectures), Anki 10 cards. Cap at IELTS 6.5–7.0.']]},
+{id:'spot',n:'Track 7 — Sat 08:00 Binance spot investing project',s:[
+['Testnet API key + read-only price/balance fetch','Separate key, trade-only, no withdrawal, IP whitelist.'],
+['Dry-run weekly DCA script (BTC/ETH)','Log what it would buy; respect LOT_SIZE / NOTIONAL filters.'],
+['Target-weight rebalance with threshold band','Rebalance only when drift > ~5%.'],
+['Trade log to CSV; compare vs plain buy-and-hold net of fees','Know if rebalancing actually helps.'],
+['Go live with tiny capital and hard caps','Max order size, max daily spend, kill switch.']]}];
+const SLOT={1:[['08:00 Engine','eng'],['09:00 Math','math'],['21:00 Systems','os']],
+2:[['08:00 Engine','eng'],['09:00 Math','math'],['21:00 Systems','cpp']],
+3:[['08:00 Engine','eng'],['09:00 Math','math'],['21:00 Systems','micro']],
+4:[['08:00 Engine','eng'],['09:00 Math','math'],['21:00 Systems','cpp']],
+5:[['08:00 Engine','eng'],['09:00 Math','math'],['21:00 Algorithms','misc']],
+6:[['08:00 Spot project','spot'],['09:00 Reading','micro'],['21:00 Weekly review',null]],0:[]};
+const K='quant_plan_v2';let st={};
+try{st=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(st))}catch(e){}};
+const first=id=>{const t=T.find(x=>x.id===id);const i=t.s.findIndex((_,j)=>!st[id+j]);return i<0?null:t.s[i][0]};
+function render(){
+ let tot=0,done=0;
+ document.getElementById('tracks').innerHTML=T.map(t=>{const d=t.s.filter((_,j)=>st[t.id+j]).length;tot+=t.s.length;done+=d;
+  return `<details class="card"${d<t.s.length?' open':''}><summary>${t.n} <span class="mu">(${d}/${t.s.length})</span></summary>`+
+  t.s.map((x,j)=>`<label class="${st[t.id+j]?'done':''}"><input type="checkbox" data-k="${t.id+j}"${st[t.id+j]?' checked':''}><span>${x[2]?`<a href="${x[2]}" target="_blank" rel="noopener">${x[0]}</a>`:x[0]}<br><small class="mu">${x[1]}</small></span></label>`).join('')+'</details>'}).join('');
+ document.getElementById('pb').style.width=(done/tot*100)+'%';
+ document.getElementById('pt').textContent=`${done} of ${tot} items done`;
+ const d=new Date();document.getElementById('today').textContent=d.toLocaleDateString('en-US',{weekday:'long',month:'short',day:'numeric'});
+ const sl=SLOT[d.getDay()];
+ document.getElementById('resume').innerHTML=d.getDay()===0?'<p>Rest day. No study, no code.</p>':
+  sl.map(([n,id])=>`<div class="slot"><b>${n}</b><span>${id?(first(id)||'Track complete ✓'):'Review ticks, plan next week, update TODO.md'}</span></div>`).join('');
+ document.querySelectorAll('input[data-k]').forEach(c=>c.onchange=()=>{st[c.dataset.k]=c.checked;save();render()});
+}
+document.getElementById('reset').onclick=()=>{if(confirm('Clear all ticks?')){st={};save();render()}};
+render();
+</script></body></html>
